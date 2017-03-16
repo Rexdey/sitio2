@@ -26,7 +26,7 @@
  if ($count == 1) {
  echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
 
- echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
+ echo "<a href='registrar.html'>Por favor escoga otro Nombre</a>";
  }
  else{
 
@@ -37,7 +37,7 @@
  
  echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
  echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
- echo "<h5>" . "Hacer Login: " . "<a href='login.html'>Login</a>" . "</h5>"; 
+ echo "<h5>" . "Hacer Login: " . "<a href='index.html'>Login</a>" . "</h5>"; 
  }
 
  else {
