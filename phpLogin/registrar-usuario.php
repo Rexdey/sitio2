@@ -12,7 +12,7 @@
     $user_type = $_POST['user_type'];
 }
 else{
-   
+
     $user_type=0;
 }
 
@@ -45,7 +45,7 @@ require_once('dbConnect.php');
  }
 
  else {
- echo "Error al crear el usuario." . $query . "<br>" . $conexion->error;
+ echo "Error al crear el usuario." . $query . "<br>" . $con->error;
    }
  }
  mysqli_close($con);
