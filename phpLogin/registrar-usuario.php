@@ -1,25 +1,28 @@
 <?php
 
- $host_db = "localhost";
- $user_db = "root";
- $pass_db = "";
- $db_name = "basedatosmaster";
+ 
  $tbl_name = "Usuarios";
  
  $form_pass = $_POST['password'];
- 
+  
  $hash = password_hash($form_pass, PASSWORD_BCRYPT); 
-
- $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
- if ($conexion->connect_error) {
- die("La conexion falló: " . $conexion->connect_error);
+ 
+ if(isset($_POST['privilegios'])){
+    
+    $privilegios = $_POST['privilegios'];
 }
+else{
+   
+    $privilegios=0;
+}
+
+require_once('dbConnect.php');
+
 
  $buscarUsuario = "SELECT * FROM $tbl_name
  WHERE nombre_usuario = '$_POST[username]' ";
 
- $result = $conexion->query($buscarUsuario);
+ $result = $con->query($buscarUsuario);
 
  $count = mysqli_num_rows($result);
 
@@ -29,11 +32,12 @@
  echo "<a href='registrar.html'>Por favor escoga otro Nombre</a>";
  }
  else{
+		
 
- $query = "INSERT INTO Usuarios (nombre_usuario, password)
-           VALUES ('$_POST[username]', '$hash')";
+ $query = "INSERT INTO Usuarios (nombre_usuario, password, privilegios)
+           VALUES ('$_POST[username]', '$hash', '$privilegios')";
 
- if ($conexion->query($query) === TRUE) {
+ if ($con->query($query) === TRUE) {
  
  echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
  echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
@@ -44,5 +48,5 @@
  echo "Error al crear el usuario." . $query . "<br>" . $conexion->error; 
    }
  }
- mysqli_close($conexion);
+ mysqli_close($con);
 ?>

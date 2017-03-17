@@ -4,24 +4,17 @@ session_start();
 
 <?php
 
-$host_db = "localhost";
-$user_db = "root";
-$pass_db = "";
-$db_name = "basedatosmaster";
+
 $tbl_name = "Usuarios";
 
-$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
-if ($conexion->connect_error) {
- die("La conexion falló: " . $conexion->connect_error);
-}
+require_once('dbConnect.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];
  
 $sql = "SELECT * FROM $tbl_name WHERE nombre_usuario = '$username'";
 
-$result = $conexion->query($sql);
+$result = $con->query($sql);
 
 
 if ($result->num_rows > 0) {     
@@ -36,11 +29,18 @@ if ($result->num_rows > 0) {
 
     echo "Bienvenido! " . $_SESSION['username'];
     echo "<br><br><a href=panel-control.php>Panel de Control</a>"; 
-
+	if($row['privilegios']=="1"){
+		$_SESSION["privilegios"] ="admin";
+		header('Location: /phpLogin/prueba.php');
+	}else{
+		$_SESSION["privilegios"] ='user';
+		header('Location: /phpLogin/prueba2.php');
+	}
+	
  } else { 
    echo "Username o Password estan incorrectos.";
 
    echo "<br><a href='index.html'>Volver a Intentarlo</a>";
  }
- mysqli_close($conexion); 
+ mysqli_close($con); 
  ?>
