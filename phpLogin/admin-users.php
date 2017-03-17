@@ -23,21 +23,30 @@ exit;
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html>
 <body>
 
-esto es una prueba admin
-
-<a href='cambio.php'>Cambiar contraseña</a>";
-<br>
-
-<a href='admin-users.php'>Administrar usuarios</a>";
-<br>
-
 <?php
-echo $_SESSION["user_type"];
-?>
 
+  require_once('dbConnect.php');
+
+$sql = "SELECT id_usuario, nombre_usuario FROM Usuarios";
+$result = mysqli_query($con, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+     while($row = mysqli_fetch_assoc($result)) {
+         echo "id: " . $row["id_usuario"]. " - Nombre: " . $row["nombre_usuario"].  "<br>";
+     }
+} else {
+     echo "0 resultados";
+}
+
+mysqli_close($con);
+?>
+<a href='portal-admin.php'>Portal</a>";
 </body>
 </html>
