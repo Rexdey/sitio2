@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
  } else {
    echo "Username o Password estan incorrectos.";
 
-   echo "<br><a href='index.html'>Volver a Intentarlo</a>";
+   echo "<br><a href='index.html'> Volver a Intentarlo</a>";
  }
  mysqli_close($con);
  ?>

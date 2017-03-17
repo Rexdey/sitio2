@@ -28,6 +28,10 @@ exit;
 <body>
 
 esto es una prueba admin
+
+<a href='cambio.php'>Cambiar contraseña</a>";
+<br>
+
 <?php
 echo $_SESSION["user_type"];
 ?>

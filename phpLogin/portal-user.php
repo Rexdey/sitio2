@@ -29,6 +29,10 @@ exit;
 
 prueba user
 
+
+<a href='cambio.php'>Cambiar contraseña</a>";
+<br>
+
 <?php
 echo $_SESSION["user_type"];
 ?>
