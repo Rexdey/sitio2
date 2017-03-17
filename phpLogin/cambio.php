@@ -46,10 +46,10 @@ exit;
 
  <!--Password-->
  <label for="pass">Escriba la nueva contraseña:</label><br>
- <input type="password" name="password" maxlength="8" required>
+ <input type="password" name="password" maxlength="8" required><br>
 
  <label for="pass">Repita la nueva contraseña:</label><br>
- <input type="password" name="confirm_password" maxlength="8" required>
+ <input type="password" name="confirm_password" maxlength="8" required><br>
 
 
 

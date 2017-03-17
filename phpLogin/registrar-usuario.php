@@ -59,6 +59,7 @@ if ($_POST["password"] == $_POST["confirm_password"]) {
 else {
    // failed :(
    echo "Las contraseñas no coinciden";
+   echo "<a href='registrar.html'> Por favor intente nuevamente</a>";
 }
 
 ?>
