@@ -1,19 +1,19 @@
 <?php
 
- 
+
  $tbl_name = "Usuarios";
- 
+
  $form_pass = $_POST['password'];
-  
- $hash = password_hash($form_pass, PASSWORD_BCRYPT); 
- 
- if(isset($_POST['privilegios'])){
-    
-    $privilegios = $_POST['privilegios'];
+
+ $hash = password_hash($form_pass, PASSWORD_BCRYPT);
+
+ if(isset($_POST['user_type'])){
+
+    $user_type = $_POST['user_type'];
 }
 else{
    
-    $privilegios=0;
+    $user_type=0;
 }
 
 require_once('dbConnect.php');
@@ -32,20 +32,20 @@ require_once('dbConnect.php');
  echo "<a href='registrar.html'>Por favor escoga otro Nombre</a>";
  }
  else{
-		
 
- $query = "INSERT INTO Usuarios (nombre_usuario, password, privilegios)
-           VALUES ('$_POST[username]', '$hash', '$privilegios')";
+
+ $query = "INSERT INTO Usuarios (nombre_usuario, password, user_type)
+           VALUES ('$_POST[username]', '$hash', '$user_type')";
 
  if ($con->query($query) === TRUE) {
- 
+
  echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
  echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
- echo "<h5>" . "Hacer Login: " . "<a href='index.html'>Login</a>" . "</h5>"; 
+ echo "<h5>" . "Hacer Login: " . "<a href='index.html'>Login</a>" . "</h5>";
  }
 
  else {
- echo "Error al crear el usuario." . $query . "<br>" . $conexion->error; 
+ echo "Error al crear el usuario." . $query . "<br>" . $conexion->error;
    }
  }
  mysqli_close($con);

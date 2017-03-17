@@ -29,7 +29,7 @@ exit;
 
 esto es una prueba admin
 <?php
-echo $_SESSION["privilegios"];
+echo $_SESSION["user_type"];
 ?>
 
 </body>

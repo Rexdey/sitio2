@@ -30,7 +30,7 @@ exit;
 prueba user
 
 <?php
-echo $_SESSION["privilegios"];
+echo $_SESSION["user_type"];
 ?>
 
 </body>
