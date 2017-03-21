@@ -36,6 +36,7 @@ esto es una prueba admin
 <br>
 <a href='registrar.php'>Crear usuarios</a>";
 <br>
+<a href=logout.php>Cerrar Sesion </a>
 
 <?php
 echo $_SESSION["user_type"];
