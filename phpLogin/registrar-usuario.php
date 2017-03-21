@@ -6,7 +6,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 } else {
    echo "Esta pagina es solo para usuarios registrados.<br>";
    echo "<br><a href='index.html'>Login</a>";
-   echo "<br><br><a href='registrar.html'>Registrarme</a>";
+   
 
 exit;
 }
@@ -55,7 +55,7 @@ if ($_POST["password"] == $_POST["confirm_password"]) {
     if ($count == 1) {
     echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
 
-    echo "<a href='registrar.html'>Por favor escoga otro Nombre</a>";
+    echo "<a href='registrar.php'>Por favor escoga otro Nombre</a>";
     }
     else{
 
@@ -79,7 +79,7 @@ if ($_POST["password"] == $_POST["confirm_password"]) {
 else {
    // failed :(
    echo "Las contraseñas no coinciden";
-   echo "<a href='registrar.html'> Por favor intente nuevamente</a>";
+   echo "<a href='registrar.php'> Por favor intente nuevamente</a>";
 }
 
 ?>

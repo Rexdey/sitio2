@@ -6,7 +6,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 } else {
    echo "Esta pagina es solo para usuarios registrados.<br>";
    echo "<br><a href='index.html'>Login</a>";
-   echo "<br><br><a href='registrar.html'>Registrarme</a>";
+
 
 exit;
 }
