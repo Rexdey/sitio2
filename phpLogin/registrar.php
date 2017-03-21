@@ -1,3 +1,7 @@
+<?php
+require_once('validacionSesion.php');
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -10,7 +14,7 @@
 <body>
 
  <header>
- <h1>Registrate en nuestro fabuloso website:</h1>
+ <h1>Creación de usuario</h1>
  </header>
 
  <form action="registrar-usuario.php" method="post">
