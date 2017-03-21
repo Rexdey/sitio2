@@ -34,6 +34,8 @@ esto es una prueba admin
 
 <a href='admin-users.php'>Administrar usuarios</a>";
 <br>
+<a href='registrar.php'>Crear usuarios</a>";
+<br>
 
 <?php
 echo $_SESSION["user_type"];

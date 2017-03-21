@@ -29,8 +29,10 @@ exit;
 
 prueba user
 
-
+<br>
 <a href='cambio.php'>Cambiar contraseña</a>";
+<br>
+<a href=logout.php>Cerrar Sesion </a>
 <br>
 
 <?php

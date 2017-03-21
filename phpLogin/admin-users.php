@@ -78,6 +78,7 @@ if ($prev >= 0)
     echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'">Previous</a>';
 ?>
 </form>
+<br>
 <a href='portal-admin.php'>Portal</a>";
 </body>
 </html>
