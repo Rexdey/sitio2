@@ -34,7 +34,7 @@ esto es una prueba admin
 
 <a href='admin-users.php'>Administrar usuarios</a>";
 <br>
-<a href='registrar.php'>Crear usuarios</a>";
+<a href='registrar.html'>Crear usuarios</a>";
 <br>
 <a href=logout.php>Cerrar Sesion </a>
 

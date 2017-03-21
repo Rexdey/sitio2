@@ -67,7 +67,7 @@ if ($_POST["password"] == $_POST["confirm_password"]) {
 
     echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
     echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
-    echo "<h5>" . "Volver al panel: " . "<a href='panel-admin'>Login</a>" . "</h5>";
+    echo "<h5>" . "Volver al panel: " . "<a href='portal-admin.php'>Panel</a>" . "</h5>";
     }
 
     else {
