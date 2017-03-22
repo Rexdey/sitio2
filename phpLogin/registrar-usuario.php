@@ -4,19 +4,19 @@ require_once('validacionSesion.php');
 
  $tbl_name = "Usuarios";
 
- $form_pass = $_POST['password'];
+ $form_pass = $_SESSION["newpass"];
 
  $hash = password_hash($form_pass, PASSWORD_BCRYPT);
 
-$user_type = $_POST['user_type'];
-$user_name = $_POST['username'];
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$email = $_POST['email'];
-$empresa = $_POST['nombre_empresa'];
+$user_type = $_SESSION["newprivilegio"];
+$user_name = $_SESSION["newuser"];
+$nombre = $_SESSION["newnombre"];
+$apellido = $_SESSION["newapellido"];
+$email = $_SESSION["newmail"];
+$empresa = $_SESSION["newempresa"];
 
 
-if ($_POST["password"] == $_POST["password2"]) {
+
    // success!
    require_once('dbConnect.php');
 
@@ -53,11 +53,7 @@ if ($_POST["password"] == $_POST["password2"]) {
       }
     }
     mysqli_close($con);
-}
-else {
-   // failed :(
-   echo "Las contraseñas no coinciden";
-   echo "<a href='registrar.php'> Por favor intente nuevamente</a>";
-}
+
+
 
 ?>
