@@ -9,10 +9,12 @@ require_once('validacionSesion.php');
  $hash = password_hash($form_pass, PASSWORD_BCRYPT);
 
 $user_type = $_POST['user_type'];
+$user_name = $_POST['username'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$email = $_POST['email'];
+$empresa = $_POST['nombre_empresa'];
 
-$tbl_name = "Usuarios";
-
-$form_pass = $_POST['password'];
 
 if ($_POST["password"] == $_POST["password2"]) {
    // success!
@@ -20,7 +22,7 @@ if ($_POST["password"] == $_POST["password2"]) {
 
 
     $buscarUsuario = "SELECT * FROM $tbl_name
-    WHERE nombre_usuario = '$_POST[username]' ";
+    WHERE nombre_usuario = '$user_name' ";
 
     $result = $con->query($buscarUsuario);
 
@@ -34,13 +36,15 @@ if ($_POST["password"] == $_POST["password2"]) {
     else{
 
 
-    $query = "INSERT INTO Usuarios (nombre_usuario, password, user_type)
-              VALUES ('$_POST[username]', '$hash', '$user_type')";
+    $query = "INSERT INTO Usuarios (nombre_usuario, password, user_type, nombre,
+       apellido, email, empresa)
+              VALUES ('$user_name', '$hash', '$user_type', '$nombre' ,
+                '$apellido' , '$email' , '$empresa')";
 
     if ($con->query($query) === TRUE) {
 
     echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
-    echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
+    echo "<h4>" . "Bienvenido: " . $user_name . "</h4>" . "\n\n";
     echo "<h5>" . "Volver al panel: " . "<a href='portal-admin.php'>Panel</a>" . "</h5>";
     }
 
