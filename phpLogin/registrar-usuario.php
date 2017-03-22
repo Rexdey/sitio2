@@ -14,7 +14,7 @@ $tbl_name = "Usuarios";
 
 $form_pass = $_POST['password'];
 
-if ($_POST["password"] == $_POST["confirm_password"]) {
+if ($_POST["password"] == $_POST["password2"]) {
    // success!
    require_once('dbConnect.php');
 
