@@ -13,6 +13,8 @@ require_once('validacionSesion.php');
 
 <body>
 
+
+
  <header>
  <h1>Creación de usuario</h1>
  </header>
@@ -35,11 +37,17 @@ require_once('validacionSesion.php');
  <input type="password" name="confirm_password" maxlength="8" required><br>
 
 
- <label for="check">¿Se otorgan privilegios de administrador?:</label><br>
- <input type="checkbox" name="user_type" value="1"> Administrador<br>
+ <label for="select">Privilegios</label><br>
+
+ <select name="user_type">
+   <option value="0">Usuario</option>
+   <option value="1">Administrador</option>
+
+ </select>
+
 
  <br/><br/>
- <input type="submit" name="submit" value="Registrarme">
+ <input type="submit" name="submit" value="Registrar">
  <input type="reset" name="clear" value="Borrar">
 
  </form>

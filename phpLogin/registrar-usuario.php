@@ -8,14 +8,7 @@ require_once('validacionSesion.php');
 
  $hash = password_hash($form_pass, PASSWORD_BCRYPT);
 
- if(isset($_POST['user_type'])){
-
-    $user_type = $_POST['user_type'];
-}
-else{
-
-    $user_type=0;
-}
+$user_type = $_POST['user_type'];
 
 $tbl_name = "Usuarios";
 
