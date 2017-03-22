@@ -204,7 +204,7 @@ require_once('validacionSesion.php');
  <br><br>
 
  <?php
-
+ require_once('dbConnect.php');
 
 
    $sql = "SELECT nombre_empresa FROM empresas";
