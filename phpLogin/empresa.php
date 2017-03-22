@@ -24,7 +24,7 @@ require_once('validacionSesion.php');
  <hr />
  <h3>Crea una empresa</h3>
 
- <!--Nombre Usuario-->
+
  <label for="nombEmpresa">Nombre de Usuario:</label><br>
  <input type="text" name="nombre-empresa" maxlength="32" required>
  <br/><br/>
@@ -41,7 +41,6 @@ require_once('validacionSesion.php');
 <hr /><br />
 
 <footer>
-
 </footer>
 
  </body>

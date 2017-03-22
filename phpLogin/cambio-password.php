@@ -37,6 +37,4 @@ else {
    echo "Las contraseñas no coinciden";
 }
 
-
-
 ?>

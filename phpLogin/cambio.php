@@ -42,7 +42,6 @@ require_once('validacionSesion.php');
 <hr /><br />
 
 <footer>
-
 </footer>
 
  </body>
