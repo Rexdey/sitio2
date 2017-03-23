@@ -1,5 +1,5 @@
 <?php
-require_once('validacionSesion.php');
+require_once('validacionUser.php');
 ?>
 
 

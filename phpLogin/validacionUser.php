@@ -3,12 +3,6 @@ session_start();
 $_SESSION['LAST_ACTIVITY'] = time();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-  if($_SESSION["user_type"] =="admin";){
-
-  }else{
-    echo "Esta pagina es solo para Administradores.<br>";
-    echo "<br><a href='index.html'>Login</a>";
-  }
 
 } else {
    echo "Esta pagina es solo para usuarios registrados.<br>";
