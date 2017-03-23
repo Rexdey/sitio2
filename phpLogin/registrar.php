@@ -207,7 +207,7 @@ require_once('validacionSesion.php');
  require_once('dbConnect.php');
 
 
-   $sql = "SELECT nombre_empresa FROM empresas";
+   $sql = "SELECT * FROM empresas";
    $result = mysqli_query($con, $sql);
 
    if (mysqli_num_rows($result) > 0) {
@@ -220,7 +220,7 @@ require_once('validacionSesion.php');
           while($row = mysqli_fetch_assoc($result))
                {
 
-          echo "<option value='" . $row['nombre_empresa'] . "'>" . $row['nombre_empresa'] . "</option>";
+          echo "<option value='" . $row['id_empresa'] . "'>" . $row['nombre_empresa'] . "</option>";
                }
              }
      echo  "</select>";

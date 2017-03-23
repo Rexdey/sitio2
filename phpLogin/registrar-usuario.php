@@ -37,7 +37,7 @@ $empresa = $_SESSION["newempresa"];
 
 
     $query = "INSERT INTO Usuarios (nombre_usuario, password, user_type, nombre,
-       apellido, email, empresa)
+       apellido, email, id_empresa)
               VALUES ('$user_name', '$hash', '$user_type', '$nombre' ,
                 '$apellido' , '$email' , '$empresa')";
 
