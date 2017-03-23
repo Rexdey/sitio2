@@ -54,7 +54,11 @@ if ($result->num_rows > 0) {
     echo "<table border=2>";
    echo "<tr><td>ID</td><td>Nombre</td></tr>";
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id_usuario"]. "</td> <td>" . $row["nombre_usuario"]. "</td></tr>";
+        
+        echo "<tr>";
+        echo "<td>" . $row["id_usuario"]. "</td>";
+        echo "<td>" . $row["nombre_usuario"]. "</td>";
+        echo "</tr>";
     }
     echo"</table>";
 } else {
@@ -71,7 +75,7 @@ $prev = $startrow - 10;
 if ($prev >= 0)
     echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Previous </a>';
 
-echo " ";    
+echo " ";
 
 echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Next </a>';
 
