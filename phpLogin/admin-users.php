@@ -9,8 +9,11 @@ require_once('validacionSesion.php');
 <html>
 <head>
 <title>Usuarios</title>
+<script src="/lib/w3.js"></script>
 </head>
+
 <body>
+
 <form method='get'>
 <?php
 
@@ -32,15 +35,15 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     echo "<table border=2>";
-   echo "<tr><td>ID</td><td>Nombre</td></tr>";
+   echo "<tr> <th>ID</th>  <th>Nombre</th></tr>";
     while($row = $result->fetch_assoc()) {
 
-        echo "<tr>";
+        echo "<tr >";
         echo "<td>" . $row["id_usuario"]. "</td>";
         echo "<td>" . $row["nombre_usuario"]. "</td>";
         echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Edit</a></td>';
 
-        echo '<td><a href="delete.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
+        echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
 
         echo "</tr>";
     }

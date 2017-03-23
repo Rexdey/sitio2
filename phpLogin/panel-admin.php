@@ -6,11 +6,11 @@ require_once('validacionSesion.php');
 <html lang="en">
 
 <head>
-<title>Panel de Control</title>
+<title>Panel de Control admin</title>
 </head>
 
 <body>
-<h1>Panel de Control</h1>
+<h1>Panel de Control admin</h1>
 <p>Aqui irian los enlaces que le permitirian al usuario
 editar su perfil o cualquier otra cosa que desees.</p>
 

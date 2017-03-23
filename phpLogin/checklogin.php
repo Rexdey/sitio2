@@ -1,8 +1,6 @@
 <?php
 session_start();
-?>
 
-<?php
 
 
 $tbl_name = "Usuarios";
