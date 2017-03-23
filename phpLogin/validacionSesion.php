@@ -3,7 +3,7 @@ session_start();
 $_SESSION['LAST_ACTIVITY'] = time();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-  if($_SESSION["user_type"] =="admin";){
+  if($_SESSION["user_type"] =="admin"){
 
   }else{
     echo "Esta pagina es solo para Administradores.<br>";
@@ -23,7 +23,7 @@ exit;
 // exit;
 // }
 //
-if (isset($_SESSION['LAST_ACTIVITY']){
+if (isset($_SESSION['LAST_ACTIVITY'])) {
 
  if ($_SESSION['LAST_ACTIVITY'] + 30 * 60 < time()) {
 

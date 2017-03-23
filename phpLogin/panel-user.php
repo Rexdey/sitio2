@@ -10,7 +10,7 @@ require_once('validacionUser.php');
 prueba user
 
 <br>
-<a href='cambio.php'>Cambiar contraseña</a>";
+<a href='cambio.php'>Cambiar contraseña</a>
 <br>
 <a href=logout.php>Cerrar Sesion </a>
 <br>

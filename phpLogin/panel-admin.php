@@ -9,14 +9,14 @@ require_once('validacionSesion.php');
 
 esto es una prueba admin
 
-<a href='cambio.php'>Cambiar contraseña</a>";
+<a href='cambio.php'>Cambiar contraseña</a>
 <br>
 
-<a href='admin-users.php'>Administrar usuarios</a>";
+<a href='admin-users.php'>Administrar usuarios</a>
 <br>
-<a href='registrar.php'>Crear usuarios</a>";
+<a href='registrar.php'>Crear usuarios</a>
 <br>
-<a href='empresa.php'>Crear Empresas</a>";
+<a href='empresa.php'>Crear Empresas</a>
 <br>
 <a href=logout.php>Cerrar Sesion </a>
 <br>
