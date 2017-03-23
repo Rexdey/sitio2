@@ -7,17 +7,13 @@ require_once('validacionSesion.php');
 <html>
 <body>
 
-prueba user
+
 
 <br>
-<a href='cambio.php'>Cambiar contraseña</a>";
+<a href='panel-user.php'>Panel de Control User</a>";
 <br>
 <a href=logout.php>Cerrar Sesion </a>
 <br>
-
-<?php
-echo $_SESSION["user_type"];
-?>
 
 </body>
 </html>

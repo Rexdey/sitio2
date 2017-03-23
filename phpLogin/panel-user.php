@@ -2,26 +2,20 @@
 require_once('validacionSesion.php');
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Panel de Control user</title>
-</head>
-
+<html>
 <body>
-<h1>Panel de Control user</h1>
-<p>Aqui irian los enlaces que le permitirian al usuario
-editar su perfil o cualquier otra cosa que desees.</p>
 
-<ul>
-  <li>Editar Perfil</li>
-  <li>Editar Preferencias</li>
-  <li>Editar Configuracion</li>
-  <li>etc.</li>
-</ul>
+prueba user
 
-<br><br>
+<br>
+<a href='cambio.php'>Cambiar contraseña</a>";
+<br>
 <a href=logout.php>Cerrar Sesion </a>
+<br>
+<br><a href='portal-user.php'> Volver</a>
+
+
 </body>
 </html>

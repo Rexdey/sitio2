@@ -45,7 +45,7 @@ $empresa = $_SESSION["newempresa"];
 
     echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
     echo "<h4>" . "Bienvenido: " . $user_name . "</h4>" . "\n\n";
-    echo "<h5>" . "Volver al panel: " . "<a href='portal-admin.php'>Panel</a>" . "</h5>";
+    echo "<h5>" . "Volver al panel: " . "<a href='panel-admin.php'>Panel</a>" . "</h5>";
     }
 
     else {

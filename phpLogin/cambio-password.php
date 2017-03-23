@@ -36,5 +36,13 @@ else {
    // failed :(
    echo "Las contraseñas no coinciden";
 }
+//
+if($_SESSION["user_type"] =="admin"){
 
+  echo "<br><a href='panel-admin.php'> Volver</a>";
+}else{
+
+  echo "<br><a href='panel-user.php'> Volver</a>";
+}
+//
 ?>

@@ -2,26 +2,26 @@
 require_once('validacionSesion.php');
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Panel de Control admin</title>
-</head>
-
+<html>
 <body>
-<h1>Panel de Control admin</h1>
-<p>Aqui irian los enlaces que le permitirian al usuario
-editar su perfil o cualquier otra cosa que desees.</p>
 
-<ul>
-  <li>Editar Perfil</li>
-  <li>Editar Preferencias</li>
-  <li>Editar Configuracion</li>
-  <li>etc.</li>
-</ul>
+esto es una prueba admin
 
-<br><br>
+<a href='cambio.php'>Cambiar contraseña</a>";
+<br>
+
+<a href='admin-users.php'>Administrar usuarios</a>";
+<br>
+<a href='registrar.php'>Crear usuarios</a>";
+<br>
+<a href='empresa.php'>Crear Empresas</a>";
+<br>
 <a href=logout.php>Cerrar Sesion </a>
+<br>
+<a href='portal-admin.php'> Volver</a>
+
+
 </body>
 </html>

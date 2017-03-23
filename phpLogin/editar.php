@@ -38,7 +38,7 @@ $id = $_SESSION["newid"];
 
     echo "<br />" . "<h2>" . "Usuario actualizado exitosamente!" . "</h2>";
 
-    echo "<h5>" . "Volver al panel: " . "<a href='portal-admin.php'>Panel</a>" . "</h5>";
+    echo "<h5>" . "Volver al panel: " . "<a href='panel-admin.php'>Panel</a>" . "</h5>";
     }
 
     else {

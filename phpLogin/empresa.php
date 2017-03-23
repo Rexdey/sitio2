@@ -37,7 +37,7 @@ require_once('validacionSesion.php');
  <input type="reset" name="clear" value="Borrar">
 
  </form>
-
+<br><a href='panel-admin.php'> Volver</a>
 <hr /><br />
 
 <footer>
