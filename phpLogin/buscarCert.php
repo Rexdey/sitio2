@@ -53,6 +53,7 @@ $sello="";
           echo "<div id='img_div'>";
           echo "<img src='images/". $row['ruta']."'>";
           echo "</div>";
+          $_SESSION['sello'] = $sello;
           }
       }
     }
@@ -91,6 +92,7 @@ $sello="";
  <div>
    <br/><br/>
    <input type="submit" name="submit" value="Buscar">
+   
 </div>
 
   </form>
