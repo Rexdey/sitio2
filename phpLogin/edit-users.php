@@ -314,7 +314,8 @@ echo "</select>";
  </form>
 
 <hr/><br/>
-
+<br><a href='panel-admin.php'> Volver</a>
+<hr/><br/>
 <footer>
 </footer>
 

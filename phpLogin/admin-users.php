@@ -70,6 +70,6 @@ echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Next </a>'
 ?>
 </form>
 <br>
-<a href='portal-admin.php'>Portal</a>";
+<a href='portal-admin.php'>Volver</a>
 </body>
 </html>

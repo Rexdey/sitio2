@@ -26,14 +26,14 @@ if ($result->num_rows > 0) {
     //$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
     $_SESSION['LAST_ACTIVITY'] = time();
 
-    echo "Bienvenido! " . $_SESSION['username'];
-    echo "<br><br><a href=panel-control.php>Panel de Control</a>";
+    // echo "Bienvenido! " . $_SESSION['username'];
+    // echo "<br><br><a href=panel-control.php>Panel de Control</a>";
 	if($row['user_type']=="1"){
 		$_SESSION["user_type"] ="admin";
-		header('Location: /phpLogin/panel-admin.php');
+		header('Location: /phpLogin/portal-admin.php');
 	}else{
 		$_SESSION["user_type"] ='user';
-		header('Location: /phpLogin/panel-user.php');
+		header('Location: /phpLogin/portal-user.php');
 	}
 
  } else {
