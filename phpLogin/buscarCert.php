@@ -96,18 +96,48 @@ $sello="";
   </form>
 
  <hr/><br/>
+
+ <form method="post" action="descargar.php">
+  <hr/>
+
+
+<div>
+  <label for="pat">Patente/Chassis:</label><br>
+  <input type="text" name="patente" maxlength="32" ><br>
+
+  <br/><br/>
+</div>
+
+ <div>
+   <br/><br/>
+   <input type="submit" name="submit" value="Descargar">
+</div>
+
+  </form>
  <div>
    <?php
-   $jpg_file    = __DIR__."/images/". $sello .".jpg";
+  //  $jpg_file    = __DIR__."/images/". $sello .".jpg";
+   //
+  //  $save_to   = __DIR__ . "/images/transformando.pdf";
+  //  $_SESSION["img"]=$save_to;
 
-   $save_to   = __DIR__ . "/images/transformando.pdf";
-   $_SESSION["img"]=$save_to;
+   //$mark="The quick brown fox jumps over the lazy dog";
+  //  $mark=$_POST['patente'];
+  //  $img = new Imagick();
+  //  $draw = new ImagickDraw();
+  //  $pixel = new ImagickPixel( 'gray' );
+  //  $img->setSize(2480,3508);
+  //  $img->readimage($jpg_file);
+   //
+  //  $draw->setFillColor('black');
+  //  $draw->setFont('images/roboto.TTF');
+  //  $draw->setFontSize( 23 );
+  //  $img->annotateImage($draw, 150, 1400, 0, $mark );
+   //
+  //  $img->setImageFormat('pdf');
+  //  $img->writeImage($save_to);
 
-   $img = new Imagick();
-   $img->setSize(2480,3508);
-   $img->readimage($jpg_file);
-   $img->setImageFormat('pdf');
-   $img->writeImage($save_to);
+
    echo "<br><a href='descargar.php'> Descargar</a>";
    ?>
  </div>
