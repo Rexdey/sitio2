@@ -10,6 +10,7 @@ require_once('validacionSesion.php');
 esto es una prueba admin
 
 <a href='panel-admin.php'>Panel de Control admin</a>
+<a href='adminCert.php'>Aministrar certificados</a>
 
 <a href=logout.php>Cerrar Sesion </a>
 

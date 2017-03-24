@@ -92,21 +92,21 @@ $sello="";
  <div>
    <br/><br/>
    <input type="submit" name="submit" value="Buscar">
-   
+
 </div>
 
   </form>
 
  <hr/><br/>
 
- <form method="post" action="descargar.php">
+ <form method="post" action="des1.php">
   <hr/>
 
 
 <div>
   <label for="pat">Patente/Chassis:</label><br>
   <input type="text" name="patente" maxlength="32" ><br>
-
+  <input type="hidden" name="sello2" value="<?php echo $sello;?>" />
   <br/><br/>
 </div>
 
