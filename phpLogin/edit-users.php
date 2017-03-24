@@ -18,8 +18,17 @@ require_once('validacionSesion.php');
 <body>
 
     <?php
+    if (isset($_GET['id']) && is_numeric($_GET['id']))
+
+    {
+      $id = $_GET['id'];
+    }else {
+      $id = $_POST['id'];
+    }
+
+
     //declaracion variables
-    $id = $_GET['id'];
+
 
 
 //
@@ -190,7 +199,7 @@ WHERE id_usuario = '$id'";
           $_SESSION["newnombre"] = $_POST['nombre'];
           $_SESSION["newapellido"] = $_POST['apellido'];
           $_SESSION["newempresa"] = $_POST['nombre_empresa'];
-          $_SESSION["newid"] = $_POST['newid'];
+          $_SESSION["newid"] = $_POST['id'];
 
           header('Location: /phpLogin/editar.php');
           exit();;
@@ -306,7 +315,7 @@ echo "</select>";
    ?>
 
   <br/><br/>
-  <input type="hidden" name="newid" value="<?php echo $id_usuario;?>" />
+  <input type="hidden" name="id" value="<?php echo $id_usuario;?>" />
   <br/><br/>
   <input type="submit" name="submit" value="Editar">
 

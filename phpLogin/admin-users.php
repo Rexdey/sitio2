@@ -35,12 +35,20 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     echo "<table border=2>";
-   echo "<tr> <th>ID</th>  <th>Nombre</th></tr>";
+   echo "<tr> <th>ID</th>  <th>Nombre</th><th>Privilegios</th></tr>";
     while($row = $result->fetch_assoc()) {
 
         echo "<tr >";
         echo "<td>" . $row["id_usuario"]. "</td>";
         echo "<td>" . $row["nombre_usuario"]. "</td>";
+        echo "<td>";
+        if($row["user_type"]==1)
+        {
+          echo "Administrador";
+        }else {
+          echo "Usuario";
+        }
+        echo "</td>";
         echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Edit</a></td>';
 
         echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
