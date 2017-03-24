@@ -107,9 +107,5 @@ while($row = $result->fetch_assoc()) {
 
 <?php
   echo "<a href='adminCert.php'>Volver</a>";
-// }
-// else{
-//   // header('Location: /phpLogin/adminCert.php');
-//   // exit();;
-// }
+
  ?>

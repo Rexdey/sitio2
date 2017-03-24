@@ -26,13 +26,15 @@ if (empty($_POST["text"])) {
 
 
     $text = $_POST['text'];
+    $nombrearchivo = $text.".jpg";
     if (($_FILES["image"]["type"] == "image/jpeg")
      || ($_FILES["image"]["type"] == "image/jpg"))
      {
 		  $target = "images/". $text .".jpg";
 		  $image = $_FILES['image']['name'];
 
-		  $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$text', '$text')";
+
+		  $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$text')";
 		  if ($con->query($sql) === TRUE) {
 
 		    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
@@ -48,7 +50,7 @@ if (empty($_POST["text"])) {
   } elseif ($_FILES["image"]["type"] == "application/pdf") {
 
     $pdfAbsolutePath = __DIR__."/images/test.pdf";
-    $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$text', '$text')";
+    $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$text')";
     if ($con->query($sql) === TRUE) {
       if (move_uploaded_file($_FILES['image']["tmp_name"], $pdfAbsolutePath)) {
 
@@ -59,7 +61,7 @@ if (empty($_POST["text"])) {
                   $image->setSize(800,600);
                   $image->readimage($url);
                   $image->setImageFormat("jpg");
-                  $image->writeImage(__DIR__."/images/".$text.'.jpg');
+                  $image->writeImage(__DIR__."/images/". $text .".jpg");
 
               $msg = "PDF convertido a jpg y cargado con exito";
 
@@ -105,6 +107,7 @@ if (empty($_POST["text"])) {
           <label for="mensaje"><?php echo $msg; ?></label>
 				</div>
 			</form>
+      <br><a href='panel-admin.php'> Volver</a>
 		</div>
 	</body>
 </html>

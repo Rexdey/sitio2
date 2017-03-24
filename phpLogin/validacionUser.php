@@ -17,7 +17,7 @@ exit;
 // exit;
 // }
 //
-if (isset($_SESSION['LAST_ACTIVITY']){
+if (isset($_SESSION['LAST_ACTIVITY'])){
 
  if ($_SESSION['LAST_ACTIVITY'] + 30 * 60 < time()) {
 
@@ -32,5 +32,6 @@ if (isset($_SESSION['LAST_ACTIVITY']){
    // session ok
 }
 }
+
 //
 ?>

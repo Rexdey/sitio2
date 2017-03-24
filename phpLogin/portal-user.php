@@ -12,6 +12,8 @@ require_once('validacionUser.php');
 <br>
 <a href='panel-user.php'>Panel de Control User</a>
 <br>
+<a href='buscarCert.php'>Buscar certificados</a>
+<br>
 <a href=logout.php>Cerrar Sesion </a>
 <br>
 
