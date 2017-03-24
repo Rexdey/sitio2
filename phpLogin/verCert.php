@@ -8,7 +8,7 @@ include ('validacionSesion.php');
 <html lang="en">
 
 <head>
- <title>Registrar Usuario</title>
+ <title>Ver Certificados</title>
  <meta charset = "utf-8">
 
  <style>
