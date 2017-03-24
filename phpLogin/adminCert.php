@@ -5,7 +5,7 @@ require_once('dbConnect.php');
 			$result = $con->query($sql);
 
       echo "<table border=2>";
-      echo "<tr> <th>Sello</th>  <th>Fecha</th></tr>";
+      echo "<tr> <th>Sello</th>  <th>Fecha de creación</th><th>Última modificación</th></tr>";
 
 			while($row = $result->fetch_assoc()) {
 				//echo "<div id='img_div'>";
@@ -19,6 +19,7 @@ require_once('dbConnect.php');
           echo "<tr >";
           echo "<td>" . $row["sello"]. "</td>";
           echo "<td>" . $row["fecha"]. "</td>";
+					echo "<td>" . $row["ult_mod"]. "</td>";
           echo '<td><a href="verCert.php?id=' . $row["id_certificado"] . '">Ver</a></td>';
           //echo '<td><a href="editCert.php?id=' . $row["id_certificado"] . '">Edit</a></td>';
           echo '<td><a href="borrarCert.php?id=' . $row["id_certificado"] . '">Delete</a></td>';
