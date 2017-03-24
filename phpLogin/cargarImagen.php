@@ -15,16 +15,16 @@ require_once('dbConnect.php');
 		  if ($con->query($sql) === TRUE) {
 
 		    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-			   $msg = "Image Uploaded Successfully";
+			   $msg = "Jpg cargado exitosamente";
 
 		    } else {
-			   $msg = "There Was A problem uploading image";
+			   $msg = "Hubo un problema al cargar el jpg";
 		  }
       }else{
       echo "Error de base de datos." . $sql . "<br>" . $con->error;
     }
     //
-  }elseif ($_FILES["image"]["type"] == "application/pdf") {
+  } elseif ($_FILES["image"]["type"] == "application/pdf") {
 
     $pdfAbsolutePath = __DIR__."/images/test.pdf";
 
@@ -34,11 +34,11 @@ require_once('dbConnect.php');
 
           $noOfPagesInPDF = $im->getNumberImages();
 
-          if ($noOfPagesInPDF) {
 
-              for ($i = 0; $i < $noOfPagesInPDF; $i++) {
 
-                  $url = $pdfAbsolutePath.'['.$i.']';
+
+
+                  $url = $pdfAbsolutePath;
 
                   $image = new Imagick();
                   $image->setResolution(150,150);
@@ -51,35 +51,23 @@ require_once('dbConnect.php');
 
                   $image->writeImage(__DIR__."/images/".$text.'.jpg');
 
-              }
+              $msg = "PDf convertido a jpg y cargado con exito";
 
-              echo "All pages of PDF is converted to images";
-
+          }else{
+              $msg = "Error: No se pudo convertir pdf a jpg";
           }
-          echo "PDF doesn't have any pages";
-
-    }
 
   }else {
-    echo "el archivo no es un formato permitido";
+    $msg= "El archivo no es de un formato permitido; por favor seleccione pdf o jpg.";
   }
   ////
 	}
 ?>
-///
 
-<?php
-
-
-
- ?>
-
-
-///
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Image Upload</title>
+		<title>Cargar Certificado</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
@@ -94,7 +82,7 @@ require_once('dbConnect.php');
 					<input type="text" name="text" maxlength="32" >
 				</div>
 				<div>
-					<input type="submit" name="upload" value="upload image">
+					<input type="submit" name="upload" value="Subir archivo">
 
           <label for="mensaje"><?php echo $msg; ?></label>
 				</div>
