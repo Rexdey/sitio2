@@ -40,7 +40,7 @@ require_once('validacionSesion.php');
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
-        <li> <a href='adminCert.php'> Volver</a></li>
+        <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
       </ul>
     </div>
@@ -73,7 +73,7 @@ require_once('validacionSesion.php');
   <input type="reset" name="clear" value="Borrar">
 
   </form>
- <br><a href='adminCert.php'> Volver</a>
+ <br>
   <hr />
 </div>
 </div>

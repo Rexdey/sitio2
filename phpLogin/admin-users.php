@@ -35,7 +35,7 @@ include ('validacionSesion.php');
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
-        <li> <a href='adminCert.php'> Volver</a></li>
+        <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
       </ul>
     </div>
@@ -44,7 +44,7 @@ include ('validacionSesion.php');
   <div class="content">
     <div class="container">
       <div class="main">
-<h1>Login de Usuarios</h1>
+<h1>Administrar Usuarios</h1>
   <hr />
 
   <form method='get'>
@@ -113,9 +113,7 @@ include ('validacionSesion.php');
 
   ?>
   </form>
-<div align="center">
-   <a href='adminCert.php'>Volver</a>
- </div>
+
   <hr />
 </div>
 </div>

@@ -37,7 +37,7 @@ include ('sanitizar.php');
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
-        <li> <a href='portal-admin.php'> Volver</a></li>
+        <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
       </ul>
     </div>
@@ -206,7 +206,7 @@ echo "<div align='left'>";
 echo "</div>";
 	 ?>
 	 <div align="center">
-	 <a href='portal-admin.php'>Volver</a>
+
 
 	</form>
 </div>

@@ -119,7 +119,7 @@ if (empty($_POST["text"])) {
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
-        <li> <a href='adminCert.php'> Volver</a></li>
+        <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
       </ul>
     </div>
@@ -148,7 +148,7 @@ if (empty($_POST["text"])) {
 	          <label for="mensaje"><?php echo $msg; ?></label>
 					</div>
 				</form>
-	      <br><a href='adminCert.php'> Volver</a>
+	      <br>
   <hr />
 </div>
 </div>
