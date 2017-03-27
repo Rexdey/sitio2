@@ -1,83 +1,114 @@
-<?php
-require_once('validacionSesion.php');
-?>
-
-
 
 
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-<title>Usuarios</title>
+ <title>Login</title>
 <script src="/lib/w3.js"></script>
+ <meta charset = "utf-8">
+ <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
+  <div class="header">
+    <div class="container">
+      <h1 class="header-heading">Gestor de Archivos</h1>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="#">Nav item 1</a></li>
+        <li><a href="#">Nav item 2</a></li>
+        <li><a href="#">Nav item 3</a></li>
+      </ul>
+    </div>
+  </div>
 
-<form method='get'>
-<?php
+  <div class="content">
+    <div class="container">
+      <div class="main">
+<h1>Login de Usuarios</h1>
+  <hr />
 
-  require_once('dbConnect.php');
+  <form method='get'>
+  <?php
 
-  if (!isset($_GET['startrow']) or !is_numeric($_GET['startrow'])) {
-  //we give the value of the starting row to 0 because nothing was found in URL
-  $startrow = 0;
-//otherwise we take the value from the URL
-} else {
-  $startrow = (int)$_GET['startrow'];
-}
+    require_once('dbConnect.php');
 
-
-
-$sql = "SELECT * FROM Usuarios LIMIT $startrow, 10";
-$result = $con->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    echo "<table border=2>";
-   echo "<tr> <th>ID</th>  <th>Nombre</th><th>Privilegios</th></tr>";
-    while($row = $result->fetch_assoc()) {
-
-        echo "<tr >";
-        echo "<td>" . $row["id_usuario"]. "</td>";
-        echo "<td>" . $row["nombre_usuario"]. "</td>";
-        echo "<td>";
-        if($row["user_type"]==1)
-        {
-          echo "Administrador";
-        }else {
-          echo "Usuario";
-        }
-        echo "</td>";
-        echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Edit</a></td>';
-
-        echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
-
-        echo "</tr>";
-    }
-    echo"</table>";
-} else {
-    echo "0 results";
-}
+    if (!isset($_GET['startrow']) or !is_numeric($_GET['startrow'])) {
+    //we give the value of the starting row to 0 because nothing was found in URL
+    $startrow = 0;
+  //otherwise we take the value from the URL
+  } else {
+    $startrow = (int)$_GET['startrow'];
+  }
 
 
-mysqli_close($con);
+
+  $sql = "SELECT * FROM Usuarios ORDER BY id_usuario DESC LIMIT $startrow, 10";
+  $result = $con->query($sql);
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      echo "<table align='center' border=2>";
+     echo "<tr> <th>ID</th>  <th>Nombre</th><th>Privilegios</th>
+     <th>Editar</th><th>Borrar</th></tr>";
+      while($row = $result->fetch_assoc()) {
+          echo "<tr >";
+          echo "<td>" . $row["id_usuario"]. "</td>";
+          echo "<td>" . $row["nombre_usuario"]. "</td>";
+          echo "<td>";
+          if($row["user_type"]==1)
+          {
+            echo "Administrador";
+          }else {
+            echo "Usuario";
+          }
+          echo "</td>";
+          echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Edit</a></td>';
+
+          echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
+
+          echo "</tr>";
+      }
+      echo"</table>";
+  } else {
+      echo "0 results";
+  }
 
 
-$prev = $startrow - 10;
+  mysqli_close($con);
 
 
-if ($prev >= 0)
+  $prev = $startrow - 10;
+
+    echo "<div>";
+  if ($prev >= 0){
     echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Previous </a>';
-
-echo " ";
-
-echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Next </a>';
+  }
 
 
-?>
-</form>
-<br>
-<a href='portal-admin.php'>Volver</a>
-</body>
+  echo "</div>";
+  echo " ";
+  echo "<div align='right'>";
+  echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Next </a>';
+  echo "</div>";
+
+  ?>
+  </form>
+<div align="center">
+   <a href='portal-admin.php'>Volver</a>
+ </div>
+  <hr />
+</div>
+</div>
+</div>
+<div class="footer">
+  <div class="container">
+    &copy; Copyright 2015
+  </div>
+ </body>
 </html>

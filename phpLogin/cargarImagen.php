@@ -83,31 +83,66 @@ if (empty($_POST["text"])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Cargar Certificado</title>
 
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-		<div id="content">
-<div>Eliga un archivo pdf o jpg y digite un codigo numerico.</div>
-			<form method="post" action="cargarimagen.php" enctype="multipart/form-data">
-				<input type="hidden" name="size" value="1000000" />
-				<div>
-					<input type="file" name="image" />
-				</div>
-				<div>
-					<input type="text" name="text" maxlength="32" >
-				</div>
-				<div>
-					<input type="submit" name="upload" value="Subir archivo">
+<html lang="en">
 
-          <label for="mensaje"><?php echo $msg; ?></label>
-				</div>
-			</form>
-      <br><a href='panel-admin.php'> Volver</a>
-		</div>
-	</body>
+<head>
+ <title>Cargar Archivos</title>
+
+ <meta charset = "utf-8">
+ <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <h1 class="header-heading">Gestor de Archivos</h1>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="#">Nav item 1</a></li>
+        <li><a href="#">Nav item 2</a></li>
+        <li><a href="#">Nav item 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="main">
+<h1>Cargar Archivos</h1>
+  <hr />
+	<div>Eliga un archivo pdf o jpg y digíte un codigo numerico.</div>
+<br><br>
+
+				<form method="post" action="cargarimagen.php" enctype="multipart/form-data">
+					<input type="hidden" name="size" value="1000000" />
+					<div>
+						<input type="file" name="image" />
+					</div><br><br>
+					<div>
+						<label for="sell">Sello:</label><br>
+						<input type="text" name="text" maxlength="32" >
+					</div><br><br>
+					<div>
+						<input type="submit" name="upload" value="Subir archivo">
+							<br>
+	          <label for="mensaje"><?php echo $msg; ?></label>
+					</div>
+				</form>
+	      <br><a href='panel-admin.php'> Volver</a>
+  <hr />
+</div>
+</div>
+</div>
+<div class="footer">
+  <div class="container">
+    &copy; Copyright 2015
+  </div>
+ </body>
 </html>

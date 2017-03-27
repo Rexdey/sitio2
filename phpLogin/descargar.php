@@ -49,7 +49,7 @@ $img->writeImage($save_to);
 
 //$download_me = "www.sitio2.com/phpLogin/images/transformando.pdf";
 header("Content-type: application/pdf");
-header("Content-Disposition: attachment; filename=prueba.pdf");
+header("Content-Disposition: attachment; filename=Prueba.pdf");
 //echo $download_me;
 
 readfile($save_to);

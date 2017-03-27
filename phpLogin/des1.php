@@ -1,9 +1,10 @@
 <?php
-
+include('validacionSesion.php');
 
 
 $patente = $_POST['patente'];
 $sello = $_POST['sello2'];
+$_SESSION["sellodescarga"]=$sello;
 echo $sello;
 echo $patente;
 $image = new Imagick();

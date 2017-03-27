@@ -2,47 +2,74 @@
 require_once('validacionUser.php');
 ?>
 
+
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
- <title>Cambiar contraseña</title>
+ <title>Login</title>
+
  <meta charset = "utf-8">
+ <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
+  <div class="header">
+    <div class="container">
+      <h1 class="header-heading">Gestor de Archivos</h1>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="#">Nav item 1</a></li>
+        <li><a href="#">Nav item 2</a></li>
+        <li><a href="#">Nav item 3</a></li>
+      </ul>
+    </div>
+  </div>
 
- <header>
- <h1>Elija nueva contraseña</h1>
- </header>
+  <div class="content">
+    <div class="container">
+      <div class="main">
+<h1>Cambiar Contraseña</h1>
+  <hr />
 
- <form action="cambio-password.php" method="post">
+  <form action="cambio-password.php" method="post">
 
- <hr />
- <h3>Cambiar</h3>
+  <!--Password-->
+  <label for="pass">Escriba la nueva contraseña:</label><br>
+  <input type="password" name="password" maxlength="8" required><br>
 
-
-
- <!--Password-->
- <label for="pass">Escriba la nueva contraseña:</label><br>
- <input type="password" name="password" maxlength="8" required><br>
-
- <label for="pass">Repita la nueva contraseña:</label><br>
- <input type="password" name="confirm_password" maxlength="8" required><br>
+  <label for="pass">Repita la nueva contraseña:</label><br>
+  <input type="password" name="confirm_password" maxlength="8" required><br>
 
 
 
- <br/><br/>
- <input type="submit" name="submit" value="Cambiar contraseña">
- <input type="reset" name="clear" value="Borrar">
+  <br/><br/>
+  <input type="submit" name="submit" value="Cambiar contraseña">
+  <input type="reset" name="clear" value="Borrar">
 
- </form>
+  </form>
+  <?php
+  if($_SESSION["user_type"] =="admin"){
 
-<hr /><br />
+    echo "<br><a href='panel-admin.php'> Volver</a>";
+  }else{
 
-<footer>
-</footer>
+    echo "<br><a href='panel-user.php'> Volver</a>";
+  }
 
+  ?>
+  <hr />
+</div>
+</div>
+</div>
+<div class="footer">
+  <div class="container">
+    &copy; Copyright 2015
+  </div>
  </body>
 </html>
