@@ -34,15 +34,12 @@ require_once('validacionSesion.php');
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-        <!-- <li><a href="#">Nav item 1</a></li>
-        <li><a href="#">Nav item 2</a></li>
-        <li><a href="#">Nav item 3</a></li> -->
+
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='portal-admin.php'> Volver</a></li>
-
 
       </ul>
     </div>
@@ -54,7 +51,7 @@ require_once('validacionSesion.php');
 <h1>Panel de Control Admin</h1>
   <hr />
 
-<!-- 
+<!--
   <ul>
     <li>  <a href='cambio.php'>Cambiar contraseña</a></li>
     <li>  <a href='admin-users.php'>Administrar usuarios</a></li>

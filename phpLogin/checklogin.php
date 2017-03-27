@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
     // echo "<br><br><a href=panel-control.php>Panel de Control</a>";
 	if($row['user_type']=="1"){
 		$_SESSION["user_type"] ="admin";
-		header('Location: /phpLogin/portal-admin.php');
+		header('Location: /phpLogin/adminCert.php');
 	}else{
 		$_SESSION["user_type"] ='user';
 		header('Location: /phpLogin/portal-user.php');
