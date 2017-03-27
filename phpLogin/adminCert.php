@@ -58,7 +58,7 @@ include ('validacionSesion.php');
 
 	      echo "<table border=2>";
 	      echo "<tr> <th>Número de Sello</th>  <th>Fecha de creación</th>
-				<th>Última modificación</th><th>Editar</th><th>Borrar</th></tr>";
+				<th>Última modificación</th><th>Imprimir</th><th>Editar</th><th>Borrar</th></tr>";
 
 				while($row = $result->fetch_assoc()) {
 
@@ -66,8 +66,9 @@ include ('validacionSesion.php');
 	          echo "<td>" . $row["sello"]. "</td>";
 	          echo "<td>" . $row["fecha"]. "</td>";
 						echo "<td>" . $row["ult_mod"]. "</td>";
-	          echo '<td><a href="verCert.php?id=' . $row["id_certificado"] . '"> Ver </a></td>';
-	          echo '<td><a href="borrarCert.php?id=' . $row["id_certificado"] . '"> Borrar </a></td>';
+            echo '<td><a href="ImprimirCertAdmin.php?id=' . $row["id_certificado"] . '"> Imprimir </a></td>';
+	          echo '<td><a href="verCert.php?id=' . $row["id_certificado"] . '"> Editar </a></td>';
+            echo '<td><a href="borrarCert.php?id=' . $row["id_certificado"] . '"> Borrar </a></td>';
 
 	          echo "</tr>";
 	      }
