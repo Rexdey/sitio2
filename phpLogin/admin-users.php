@@ -68,9 +68,9 @@
             echo "Usuario";
           }
           echo "</td>";
-          echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Edit</a></td>';
+          echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Editar</a></td>';
 
-          echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Delete</a></td>';
+          echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Borrar</a></td>';
 
           echo "</tr>";
       }
@@ -87,14 +87,14 @@
 
     echo "<div>";
   if ($prev >= 0){
-    echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Previous </a>';
+    echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Anterior </a>';
   }
 
 
   echo "</div>";
   echo " ";
   echo "<div align='right'>";
-  echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Next </a>';
+  echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Siguiente </a>';
   echo "</div>";
 
   ?>
