@@ -75,34 +75,42 @@ include ('sanitizar.php');
 
           }
           else{
-            $sql2 = "SELECT * FROM Usuarios WHERE nombre_usuario='$user'";
-            $result2 = $con->query($sql2);
+            $sql = "SELECT * FROM Usuarios LEFT JOIN empresas ON usuarios.id_empresa
+            = empresas.id_empresa WHERE nombre_usuario='$user'";
+            $result = $con->query($sql);
 
 
-            if($result2->num_rows < 1){
+            if($result->num_rows < 1){
               $userErr ="El nombre de usuario ingresado no existe";
             }else{
 
 
               echo "<table align='center' border=2>";
-              echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th><th>Privilegios</th>
-              <th>Editar</th><th>Borrar</th></tr>";
-
-              while($row2 = $result2->fetch_assoc()) {
-
-              echo "<tr >";
-              echo "<td>" . $row2["id_usuario"]. "</td>";
-              echo "<td>" . $row2["nombre_usuario"]. "</td>";
-              echo "<td>";
-              if($row2["user_type"]==1)
+             echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th>
+             <th>Nombre</th>
+             <th>Apellido</th>
+             <th>Email</th>
+             <th>Empresa</th>
+             <th>Privilegios</th>
+             <th>Editar</th><th>Borrar</th></tr>";
+              while($row = $result->fetch_assoc()) {
+                  echo "<tr >";
+                  echo "<td>" . $row["id_usuario"]. "</td>";
+                  echo "<td>" . $row["nombre_usuario"]. "</td>";
+                  echo "<td>" . $row["nombre"]. "</td>";
+                  echo "<td>" . $row["apellido"]. "</td>";
+                  echo "<td>" . $row["email"]. "</td>";
+                  echo "<td>" . $row["nombre_empresa"]. "</td>";
+                  echo "<td>";
+              if($row["user_type"]==1)
               {
                 echo "Administrador";
               }else {
                 echo "Usuario";
               }
               echo "</td>";
-              echo '<td><a href="edit-users.php?id=' . $row2["id_usuario"] . '">Editar</a></td>';
-              echo '<td><a href="borrar.php?id=' . $row2["id_usuario"] . '">Borrar</a></td>';
+              echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Editar</a></td>';
+              echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Borrar</a></td>';
               echo "</tr>";
             }
             echo"</table>";
@@ -141,7 +149,11 @@ include ('sanitizar.php');
 
 
   </div>
+<!-- ////////// -->
 
+
+
+<!-- //////////// -->
 </div>
 
 
@@ -159,18 +171,28 @@ include ('sanitizar.php');
     $startrow = (int)$_GET['startrow'];
   }
 
-  $sql = "SELECT * FROM Usuarios ORDER BY id_usuario DESC LIMIT $startrow, 10";
+  $sql = "SELECT * FROM Usuarios LEFT JOIN empresas ON usuarios.id_empresa =
+  empresas.id_empresa ORDER BY id_usuario DESC LIMIT $startrow, 10";
   $result = $con->query($sql);
 
   if ($result->num_rows > 0) {
 
       echo "<table align='center' border=2>";
-     echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th><th>Privilegios</th>
+     echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th>
+     <th>Nombre</th>
+     <th>Apellido</th>
+     <th>Email</th>
+     <th>Empresa</th>
+     <th>Privilegios</th>
      <th>Editar</th><th>Borrar</th></tr>";
       while($row = $result->fetch_assoc()) {
           echo "<tr >";
           echo "<td>" . $row["id_usuario"]. "</td>";
           echo "<td>" . $row["nombre_usuario"]. "</td>";
+          echo "<td>" . $row["nombre"]. "</td>";
+          echo "<td>" . $row["apellido"]. "</td>";
+          echo "<td>" . $row["email"]. "</td>";
+          echo "<td>" . $row["nombre_empresa"]. "</td>";
           echo "<td>";
           if($row["user_type"]==1)
           {
