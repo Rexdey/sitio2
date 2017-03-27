@@ -84,7 +84,7 @@ include ('validacionSesion.php');
       }
       echo"</table>";
   } else {
-      echo "0 results";
+      echo "No hay empresas en la base de datos";
   }
 
 

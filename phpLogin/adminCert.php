@@ -13,6 +13,9 @@ include ('sanitizar.php');
 <script src="/lib/w3.js"></script>
  <meta charset = "utf-8">
  <link rel="stylesheet" href="assets/css/styles.css">
+ <style>
+ .error {color: #FF0000;}
+ </style>
 </head>
 
 <body>
@@ -37,6 +40,7 @@ include ('sanitizar.php');
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
+        <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
@@ -85,10 +89,8 @@ include ('sanitizar.php');
             $selloErr ="El codigo ingresado no existe";
           }else{
 
-        ///////////////////
 
-?>
-<?php
+
 echo "<table border=2>";
 echo "<tr> <th>Número de Sello</th>  <th>Fecha de creación</th>
 <th>Última modificación</th><th>Imprimir</th><th>Editar</th><th>Borrar</th></tr>";
@@ -109,16 +111,8 @@ echo"</table>";
 
 mysqli_close($con);
 
-
-
-
-
-            /////////////
         }
       }
-
-
-
 }
     }
 
@@ -130,11 +124,6 @@ mysqli_close($con);
  <input type="text" name="sello" maxlength="32" value="" ><br>
 <span class="error">* <?php echo $selloErr;?></span>
  <br/><br/>
-
-
-
-
-
 
 
   <input type="submit" name="submit" value="Buscar">
@@ -152,6 +141,7 @@ mysqli_close($con);
 
 
 </div>
+
 </div>
 
 	<form method='get'>

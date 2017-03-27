@@ -1,5 +1,6 @@
 <?php
 include ('validacionSesion.php');
+include ('sanitizar.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +12,9 @@ include ('validacionSesion.php');
 <script src="/lib/w3.js"></script>
  <meta charset = "utf-8">
  <link rel="stylesheet" href="assets/css/styles.css">
+ <style>
+ .error {color: #FF0000;}
+ </style>
 </head>
 
 <body>
@@ -34,7 +38,7 @@ include ('validacionSesion.php');
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
-        <li><a href='empresa.php'>Crear Empresas</a></li>
+        <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
@@ -48,28 +52,120 @@ include ('validacionSesion.php');
 <h1>Administrar Usuarios</h1>
   <hr />
 
+<div>
+
+  <div>
+
+    <?php
+
+    include('dbConnect.php');
+    $userErr="";
+    $user="";
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        if (empty($_POST["user"])) {
+
+
+        }else {
+        $user = test_input($_POST["user"]);
+
+          if (!preg_match("/^[a-zA-Z]*$/",$user)) {
+            $userErr= "Solo se permiten letras sin espacios en blanco";
+
+          }
+          else{
+            $sql2 = "SELECT * FROM Usuarios WHERE nombre_usuario='$user'";
+            $result2 = $con->query($sql2);
+
+
+            if($result2->num_rows < 1){
+              $userErr ="El nombre de usuario ingresado no existe";
+            }else{
+
+
+              echo "<table align='center' border=2>";
+              echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th><th>Privilegios</th>
+              <th>Editar</th><th>Borrar</th></tr>";
+
+              while($row2 = $result2->fetch_assoc()) {
+
+              echo "<tr >";
+              echo "<td>" . $row2["id_usuario"]. "</td>";
+              echo "<td>" . $row2["nombre_usuario"]. "</td>";
+              echo "<td>";
+              if($row2["user_type"]==1)
+              {
+                echo "Administrador";
+              }else {
+                echo "Usuario";
+              }
+              echo "</td>";
+              echo '<td><a href="edit-users.php?id=' . $row2["id_usuario"] . '">Editar</a></td>';
+              echo '<td><a href="borrar.php?id=' . $row2["id_usuario"] . '">Borrar</a></td>';
+              echo "</tr>";
+            }
+            echo"</table>";
+
+            mysqli_close($con);
+
+          }
+        }
+      }
+    }
+
+
+
+    ?>
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+   <hr/>
+   <p>Ingrese el Nombre de Usuario a buscar</p>
+   <label for="sell">Nombre de usuario:</label><br>
+   <input type="text" name="user" maxlength="32" value=""><br>
+  <span class="error">* <?php echo $userErr;?></span>
+   <br/><br/>
+
+
+    <input type="submit" name="submit" value="Buscar">
+    <input type="reset" name="clear" value="Limpiar">
+
+
+
+
+   </form>
+
+
+    <br/><br/>
+
+    <br/><br/>
+
+
+  </div>
+
+</div>
+
+
+
+
+<div>
   <form method='get'>
   <?php
 
-    require_once('dbConnect.php');
+    include('dbConnect.php');
 
     if (!isset($_GET['startrow']) or !is_numeric($_GET['startrow'])) {
-    //we give the value of the starting row to 0 because nothing was found in URL
-    $startrow = 0;
-  //otherwise we take the value from the URL
+      $startrow = 0;
   } else {
     $startrow = (int)$_GET['startrow'];
   }
-
-
 
   $sql = "SELECT * FROM Usuarios ORDER BY id_usuario DESC LIMIT $startrow, 10";
   $result = $con->query($sql);
 
   if ($result->num_rows > 0) {
-      // output data of each row
+
       echo "<table align='center' border=2>";
-     echo "<tr> <th>ID</th>  <th>Nombre</th><th>Privilegios</th>
+     echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th><th>Privilegios</th>
      <th>Editar</th><th>Borrar</th></tr>";
       while($row = $result->fetch_assoc()) {
           echo "<tr >";
@@ -84,16 +180,13 @@ include ('validacionSesion.php');
           }
           echo "</td>";
           echo '<td><a href="edit-users.php?id=' . $row["id_usuario"] . '">Editar</a></td>';
-
           echo '<td><a href="borrar.php?id=' . $row["id_usuario"] . '">Borrar</a></td>';
-
           echo "</tr>";
       }
       echo"</table>";
   } else {
       echo "0 results";
   }
-
 
   mysqli_close($con);
 
@@ -105,7 +198,6 @@ include ('validacionSesion.php');
     echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Anterior </a>';
   }
 
-
   echo "</div>";
   echo " ";
   echo "<div align='right'>";
@@ -114,7 +206,7 @@ include ('validacionSesion.php');
 
   ?>
   </form>
-
+</div>
   <hr />
 </div>
 </div>
