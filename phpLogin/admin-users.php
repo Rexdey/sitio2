@@ -61,22 +61,27 @@ include ('sanitizar.php');
     include('dbConnect.php');
     $userErr="";
     $user="";
+    $empErr="";
+    $emp="";
 
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        if (empty($_POST["user"])) {
 
-
-        }else {
         $user = test_input($_POST["user"]);
+        $emp = test_input($_POST["emp"]);
 
-          if (!preg_match("/^[a-zA-Z]*$/",$user)) {
-            $userErr= "Solo se permiten letras sin espacios en blanco";
-
-          }
-          else{
+          // if (!preg_match("/^[a-zA-Z]*$/",$user)) {
+          //   $userErr= "Solo se permiten letras sin espacios en blanco";
+          //
+          //   if(!preg_match("/^[a-zA-Z]*$/",$emp)){
+          //     $empErr= "Solo se permiten letras sin espacios en blanco";
+          //
+          //   }
+          //
+          // }
+          // else{
             $sql = "SELECT * FROM Usuarios LEFT JOIN empresas ON usuarios.id_empresa
-            = empresas.id_empresa WHERE nombre_usuario='$user'";
+            = empresas.id_empresa WHERE nombre_usuario='$user' OR nombre_empresa='$emp'";
             $result = $con->query($sql);
 
 
@@ -118,19 +123,29 @@ include ('sanitizar.php');
             mysqli_close($con);
 
           }
-        }
-      }
+      //  }
+
     }
 
 
 
     ?>
+    <div>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
    <hr/>
+   <div float="left">
    <p>Ingrese el Nombre de Usuario a buscar</p>
    <label for="sell">Nombre de usuario:</label><br>
    <input type="text" name="user" maxlength="32" value=""><br>
   <span class="error">* <?php echo $userErr;?></span>
+    </div>
+  
+   <div float="right">
+   <p>Ingrese la Empresa del Usuario a buscar</p>
+   <label for="sell">Empresa:</label><br>
+   <input type="text" name="emp" maxlength="32" value=""><br>
+  <span class="error">* <?php echo $empErr;?></span>
+</div>
    <br/><br/>
 
 
@@ -141,7 +156,7 @@ include ('sanitizar.php');
 
 
    </form>
-
+    </div>
 
     <br/><br/>
 
