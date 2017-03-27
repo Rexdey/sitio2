@@ -8,44 +8,15 @@ include ('validacionUser.php');
 if (isset($_GET['id']) && is_numeric($_GET['id']))
 
 {
-
-// get id value
-
-$id = $_GET['id'];
-
-//require_once('dbConnect.php');
-
-
-
-
-//$sql = "DELETE FROM usuarios WHERE id_usuario=$id";
-
-//$result = $con->query($sql);
-
-// header('Location: /phpLogin/admin-users.php');
-// exit();
+    $id = $_GET['id'];
 }
-
 else
-
-// if id isn't set, or isn't valid, redirect back to view page
-
 {
 $id= $_POST['id_certificado'];
-  // header('Location: /phpLogin/adminCert.php');
-  // exit();
 
 }
 
-
-
-
 ?>
-
-
-
-
-
 
 
 
@@ -54,7 +25,7 @@ $id= $_POST['id_certificado'];
  <html lang="en">
 
  <head>
-  <title>Buscar Certificados</title>
+  <title>Descargar Certificados</title>
 
   <meta charset = "utf-8">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -68,13 +39,25 @@ $id= $_POST['id_certificado'];
      <div class="container">
        <h1 class="header-heading">Gestor de Archivos</h1>
      </div>
+     <div align="right" >
+       <ul class="nav">
+       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
+       <li><a href='cambio.php'>Cambiar contraseña</a></li>
+       <li>  <a href=logout.php>Cerrar Sesión </a></li>
+
+   </ul>
+ </div>
    </div>
    <div class="nav-bar">
      <div class="container">
        <ul class="nav">
-         <li><a href="#">Nav item 1</a></li>
-         <li><a href="#">Nav item 2</a></li>
-         <li><a href="#">Nav item 3</a></li>
+
+         <li><a href='admin-users.php'>Administrar usuarios</a></li>
+         <li><a href='registrar.php'>Crear usuarios</a></li>
+         <li><a href='empresa.php'>Crear Empresas</a></li>
+         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
+         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
+
        </ul>
      </div>
    </div>
@@ -82,7 +65,7 @@ $id= $_POST['id_certificado'];
    <div class="content">
      <div class="container">
        <div class="main">
- <h1>Buscar Certificados</h1>
+ <h1>Descargar Certificados</h1>
    <hr />
 
    <div>
@@ -118,7 +101,7 @@ $id= $_POST['id_certificado'];
 
    </div>
 
-   
+
      <p>Ingrese el numero de sello del certificado a buscar (Campo obligatorio)</p>
      <label for="sell"><?php echo "El número de sello es:".$sello ."";?>:</label><br>
 
@@ -144,8 +127,8 @@ $id= $_POST['id_certificado'];
 
      </form>
    <hr />
-    <!-- <br><a href='descargar.php'> Descargar</a> -->
-    <br><a href='portal-admin.php'>Volver</a>
+
+    <br>
  </div>
  </div>
  </div>

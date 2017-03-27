@@ -1,5 +1,5 @@
 <?php
-require_once('validacionSesion.php');
+include('validacionSesion.php');
 
 
  $tbl_name = "Usuarios";
@@ -19,7 +19,7 @@ $id = $_SESSION["newid"];
 
 
    // success!
-   require_once('dbConnect.php');
+   include('dbConnect.php');
 
 
 

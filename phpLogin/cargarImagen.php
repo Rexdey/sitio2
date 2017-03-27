@@ -106,7 +106,7 @@ if (empty($_POST["text"])) {
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
       <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesion </a></li>
+      <li>  <a href=logout.php>Cerrar Sesión</a></li>
 
   </ul>
 </div>
@@ -155,7 +155,7 @@ if (empty($_POST["text"])) {
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2015
+    &copy; Copyright 2017
   </div>
  </body>
 </html>

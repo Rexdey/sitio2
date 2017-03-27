@@ -120,7 +120,7 @@ include ('validacionSesion.php');
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2015
+    &copy; Copyright 2017
   </div>
  </body>
 </html>

@@ -24,7 +24,7 @@ require_once('validacionUser.php');
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
       <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesion </a></li>
+      <li>  <a href=logout.php>Cerrar Sesión </a></li>
 
   </ul>
 </div>
@@ -33,11 +33,25 @@ require_once('validacionUser.php');
     <div class="container">
       <ul class="nav">
 
+        <?php
+        if($_SESSION["user_type"] =="admin"){
+        ?>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
+
+        <?php
+        }else{
+        ?>
+          <li> <a href='buscarCert.php'> Buscar Certificados</a></li>
+          <?php
+        }
+
+        ?>
+
+
 
       </ul>
     </div>

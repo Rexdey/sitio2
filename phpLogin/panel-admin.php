@@ -26,7 +26,7 @@ require_once('validacionSesion.php');
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
       <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesion </a></li>
+      <li>  <a href=logout.php>Cerrar Sesión </a></li>
 
   </ul>
 </div>

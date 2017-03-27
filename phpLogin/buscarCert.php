@@ -6,10 +6,6 @@ include ('validacionUser.php');
 
 
 
-
-
-
-
  <!DOCTYPE html>
 
  <html lang="en">
@@ -29,13 +25,22 @@ include ('validacionUser.php');
      <div class="container">
        <h1 class="header-heading">Gestor de Archivos</h1>
      </div>
+     <div align="right" >
+       <ul class="nav">
+       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
+       <li><a href='cambio.php'>Cambiar contraseña</a></li>
+       <li>  <a href=logout.php>Cerrar Sesión </a></li>
+
+   </ul>
+ </div>
    </div>
+
    <div class="nav-bar">
      <div class="container">
        <ul class="nav">
-         <li><a href="#">Nav item 1</a></li>
-         <li><a href="#">Nav item 2</a></li>
-         <li><a href="#">Nav item 3</a></li>
+         <li><a href="#"></a></li>
+         <li><a href="#"></a></li>
+         <li><a href="#"></a></li>
        </ul>
      </div>
    </div>
@@ -144,8 +149,7 @@ include ('validacionUser.php');
 
      </form>
    <hr />
-    <!-- <br><a href='descargar.php'> Descargar</a> -->
-    <br><a href='portal-user.php'>Volver</a>
+
  </div>
  </div>
  </div>
