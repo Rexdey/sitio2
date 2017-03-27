@@ -91,7 +91,7 @@ if (empty($_POST["text"])) {
 <html lang="en">
 
 <head>
- <title>Cargar Archivos</title>
+ <title>Cargar Certificado</title>
 
  <meta charset = "utf-8">
  <link rel="stylesheet" href="assets/css/styles.css">
@@ -128,7 +128,7 @@ if (empty($_POST["text"])) {
   <div class="content">
     <div class="container">
       <div class="main">
-<h1>Cargar Archivos</h1>
+<h1>Cargar Certificado</h1>
   <hr />
 	<div>Eliga un archivo pdf o jpg y digíte un codigo numerico.</div>
 <br><br>

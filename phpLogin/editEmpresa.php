@@ -1,14 +1,9 @@
 <?php
-require_once('validacionSesion.php');
+include('validacionSesion.php');
 
-
-
-
-$sello = $_SESSION["newsello"];
-$idcert = $_SESSION["newidcert"];
-
+$empresa = $_SESSION["newempresa"];
+$id = $_SESSION["newidempre"];
 ?>
-
 
 
 
@@ -17,7 +12,7 @@ $idcert = $_SESSION["newidcert"];
 <html lang="en">
 
 <head>
- <title>Editar Certificados</title>
+ <title>Editar Empresa</title>
 
  <meta charset = "utf-8">
  <link rel="stylesheet" href="assets/css/styles.css">
@@ -57,27 +52,25 @@ $idcert = $_SESSION["newidcert"];
   <div class="content">
     <div class="container">
       <div class="main">
-<h1>Editar Certificados</h1>
+<h1>Editar Empresa</h1>
   <hr />
 
+
   <?php
-     // success!
-     require_once('dbConnect.php');
+     include('dbConnect.php');
 
-        $sql = "UPDATE certificados SET sello='$sello'
-         WHERE id_certificado= '$idcert'";
+        $sql = "UPDATE empresas SET nombre_empresa='$empresa'
+         WHERE id_empresa= '$id'";
 
-
-  //
       if ($con->query($sql) === TRUE) {
 
-      echo "<br />" . "<h2>" . "Certificado actualizado exitosamente!" . "</h2>";
+      echo "<br />" . "<h2>" . "Empresa actualizada exitosamente!" . "</h2>";
 
-      echo "<a href='adminCert.php'>Volver</a>";
+      echo "<h5>" .  "<a href='adminEmpresas.php'>Volver</a>" . "</h5>";
       }
 
       else {
-      echo "Error al actualizar el certificado." . $sql . "<br>" . $con->error;
+      echo "Error al actualizar la empresa." . $sql . "<br>" . $con->error;
         }
 
       mysqli_close($con);

@@ -196,13 +196,13 @@ mysqli_close($con);
 	mysqli_close($con);
 
 	$prev = $startrow - 10;
-echo "<div align='right'>";
+echo "<div align='left'>";
 	if ($prev >= 0)
-	    echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Siguiente </a>';
+	    echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.$prev.'"> Anterior </a>';
 echo "</div>";
 	echo " ";
-echo "<div align='left'>";
-	echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Anterior </a>';
+echo "<div align='right'>";
+	echo '<a href="'.$_SERVER['PHP_SELF'].'?startrow='.($startrow+10).'"> Siguiente </a>';
 echo "</div>";
 	 ?>
 	 <div align="center">
