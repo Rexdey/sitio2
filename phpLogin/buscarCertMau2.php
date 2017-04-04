@@ -83,7 +83,7 @@ include ('validacionUser.php');
 
 
              if($result->num_rows < 1){
-             	$varios=true;
+               $varios=false;
                $selloErr ="El codigo ingresado no existe";
              }elseif($result->num_rows == 1){
 
@@ -209,5 +209,3 @@ echo "<br/><br/>
    </div>
   </body>
  </html>
-
- 

@@ -7,10 +7,10 @@ include ('validacionSesion.php');
 
  <html lang="en">
 
- <head>
+ <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
   <title>Login</title>
 
-  <meta charset = "utf-8">
+
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
   .error {color: #FF0000;}
@@ -23,13 +23,13 @@ include ('validacionSesion.php');
 
    <div class="header">
      <div class="container">
-       <h1 class="header-heading">Gestor de Archivos</h1>
+       <h1 class="header-heading">Certificados Online</h1>
      </div>
      <div align="right" >
        <ul class="nav">
        <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-       <li><a href='cambio.php'>Cambiar contraseña</a></li>
-       <li>  <a href=logout.php>Cerrar Sesión </a></li>
+       <li><a href='cambio.php'>Cambiar password</a></li>
+       <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
    </ul>
  </div>
@@ -37,10 +37,11 @@ include ('validacionSesion.php');
    <div class="nav-bar">
      <div class="container">
        <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
          <li><a href='admin-users.php'>Administrar usuarios</a></li>
          <li><a href='registrar.php'>Crear usuarios</a></li>
          <li><a href='empresa.php'>Crear Empresas</a></li>
+         <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
          <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
          <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
@@ -106,6 +107,7 @@ include ('validacionSesion.php');
          $_SESSION["newidcert"] = $_POST['id'];
 
 
+        // header('Location: /gestorCert/editCert.php');
          header('Location: /phpLogin/editCert.php');
          exit();;
 
@@ -145,7 +147,7 @@ include ('validacionSesion.php');
  </div>
  <div class="footer">
    <div class="container">
-     &copy; Copyright 2017
+     &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
    </div>
   </body>
  </html>

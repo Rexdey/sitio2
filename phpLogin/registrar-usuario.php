@@ -2,7 +2,7 @@
 include('validacionSesion.php');
 
 
- $tbl_name = "Usuarios";
+ $tbl_name = "usuarios";
 
  $form_pass = $_SESSION["newpass"];
 
@@ -21,10 +21,10 @@ $empresa = $_SESSION["newempresa"];
 
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
  <title>Login</title>
 
- <meta charset = "utf-8">
+
  <link rel="stylesheet" href="assets/css/styles.css">
  <style>
  .error {color: #FF0000;}
@@ -34,13 +34,13 @@ $empresa = $_SESSION["newempresa"];
 <body>
   <div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesión </a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
+      <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
   </ul>
   </div>
@@ -48,10 +48,11 @@ $empresa = $_SESSION["newempresa"];
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
+        <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
@@ -82,16 +83,30 @@ $empresa = $_SESSION["newempresa"];
       }
       else{
 
-      $query = "INSERT INTO Usuarios (nombre_usuario, password, user_type, nombre,
+      $query = "INSERT INTO usuarios (nombre_usuario, password, user_type, nombre,
          apellido, email, id_empresa)
                 VALUES ('$user_name', '$hash', '$user_type', '$nombre' ,
                   '$apellido' , '$email' , '$empresa')";
 
       if ($con->query($query) === TRUE) {
 
-      echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
-      echo "<h4>" . "Bienvenido: " . $user_name . "</h4>" . "\n\n";
-      echo "<h5>" . "Volver al panel: " . "<a href='adminCert.php'>Panel</a>" . "</h5>";
+      echo "<br />" . "<h2>" . "El Usuario: ". $user_name .  " ha sido creado exitosamente." . "</h2>";
+
+
+
+	$to      = $email;
+	$subject = 'Nueva cuenta en IMPORTHN';
+	$message = 'Se ha generado una nueva cuenta de usuario a su nombre.
+	Su nombre de usuario es: ' .$user_name .' Su password es: '. $form_pass.
+	' Se le recomienda cambiar su password la primera vez que ingrese al sistema, desde el menu en la esquina superior derecha.';
+	$headers = 'From: cert@importhn.com' . "\r\n" .
+   	'Reply-To: noreply@importhn.com' . "\r\n" .
+    	'X-Mailer: PHP/' . phpversion();
+
+	mail($to, $subject, $message, $headers);
+
+
+
       }
 
       else {
@@ -108,7 +123,7 @@ $empresa = $_SESSION["newempresa"];
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

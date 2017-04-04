@@ -21,24 +21,24 @@ include ('sanitizar.php');
 <body>
   <div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesión </a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
+      <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
   </ul>
 </div>
   </div>
   <div class="nav-bar">
+
     <div class="container">
       <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
-        <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
         <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
@@ -92,14 +92,13 @@ include ('sanitizar.php');
 
 
 echo "<table border=2>";
-echo "<tr> <th>Número de Sello</th>  <th>Fecha de creación</th>
+echo "<tr> <th>Número de Sello</th>
 <th>Última modificación</th><th>Imprimir</th><th>Editar</th><th>Borrar</th></tr>";
 
 while($row = $result->fetch_assoc()) {
 
     echo "<tr >";
     echo "<td>" . $row["sello"]. "</td>";
-    echo "<td>" . $row["fecha"]. "</td>";
     echo "<td>" . $row["ult_mod"]. "</td>";
     echo '<td><a href="ImprimirCertAdmin.php?id=' . $row["id_certificado"] . '"> Imprimir </a></td>';
     echo '<td><a href="verCert.php?id=' . $row["id_certificado"] . '"> Editar </a></td>';
@@ -119,7 +118,7 @@ mysqli_close($con);
   ?>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
  <hr/>
- <p>Ingrese el numero de sello del certificado a buscar</p>
+ <p>Ingrese el numero de sello de barra a buscar</p>
  <label for="sell">Sello:</label><br>
  <input type="text" name="sello" maxlength="32" value="" ><br>
 <span class="error">* <?php echo $selloErr;?></span>
@@ -151,12 +150,18 @@ mysqli_close($con);
 	include('dbConnect.php');
 
 	if (!isset($_GET['startrow']) or !is_numeric($_GET['startrow'])) {
-	//we give the value of the starting row to 0 because nothing was found in URL
+
 	$startrow = 0;
-	//otherwise we take the value from the URL
+
 	} else {
 	$startrow = (int)$_GET['startrow'];
 	}
+
+		$sql2 = "SELECT * FROM certificados";
+        	$info= $con->query($sql2);
+
+       		echo "Número total de certificados: " . $info->num_rows;
+       		echo "<br>";
 
 
 				$sql = "SELECT * FROM certificados ORDER BY id_certificado DESC LIMIT $startrow, 10";
@@ -165,15 +170,14 @@ mysqli_close($con);
 				if ($result->num_rows > 0) {
 
 	      echo "<table border=2>";
-	      echo "<tr> <th>Número de Sello</th>  <th>Fecha de creación</th>
+	      echo "<tr> <th>Número de Sello</th>
 				<th>Última modificación</th><th>Imprimir</th><th>Editar</th><th>Borrar</th></tr>";
 
 				while($row = $result->fetch_assoc()) {
 
 	          echo "<tr >";
 	          echo "<td>" . $row["sello"]. "</td>";
-	          echo "<td>" . $row["fecha"]. "</td>";
-						echo "<td>" . $row["ult_mod"]. "</td>";
+	          echo "<td>" . $row["ult_mod"]. "</td>";
             echo '<td><a href="ImprimirCertAdmin.php?id=' . $row["id_certificado"] . '"> Imprimir </a></td>';
 	          echo '<td><a href="verCert.php?id=' . $row["id_certificado"] . '"> Editar </a></td>';
             echo '<td><a href="borrarCert.php?id=' . $row["id_certificado"] . '"> Borrar </a></td>';
@@ -208,7 +212,7 @@ echo "</div>";
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

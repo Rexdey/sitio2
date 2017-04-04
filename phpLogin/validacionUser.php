@@ -1,7 +1,12 @@
 <?php
 session_start();
 $_SESSION['LAST_ACTIVITY'] = time();
+?>
 
+
+
+
+<?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 } else {
@@ -33,5 +38,5 @@ if (isset($_SESSION['LAST_ACTIVITY'])){
 }
 }
 
-//
+
 ?>

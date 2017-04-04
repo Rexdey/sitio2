@@ -224,6 +224,16 @@ Single styles
 	padding-left: 5px;
 }
 
+.parent {
+   width: 42px; /* I took the width from your post and placed it in css */
+   height: 42px;
+}
+
+/* This will style any <img> element in .parent div */
+.parent img {
+   height: 100%;
+   width: 100%;
+}
 /* -----------------------
 Wide styles
 ------------------------*/

@@ -20,18 +20,19 @@ include('dbConnect.php');
 
 
 
-$sql = "DELETE FROM Empresas WHERE id_empresa=$id";
+$sql = "DELETE FROM empresas WHERE id_empresa=$id";
 
 $result = $con->query($sql);
 
 header('Location: /phpLogin/adminEmpresas.php');
+//header('Location: /gestorCert/adminEmpresas.php');
 exit();
 }
 
 else
 {
-
   header('Location: /phpLogin/adminEmpresas.php');
+  //header('Location: /gestorCert/adminEmpresas.php');
   exit();
 
 }

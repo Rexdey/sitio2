@@ -7,10 +7,10 @@ include ('sanitizar.php');
 
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
  <title>Login</title>
 <script src="/lib/w3.js"></script>
- <meta charset = "utf-8">
+
  <link rel="stylesheet" href="assets/css/styles.css">
  <style>
  .error {color: #FF0000;}
@@ -20,12 +20,12 @@ include ('sanitizar.php');
 <body>
   <div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
       <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
   </ul>
@@ -34,7 +34,7 @@ include ('sanitizar.php');
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-
+	<li><a href="/index.html">ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
@@ -70,17 +70,8 @@ include ('sanitizar.php');
         $user = test_input($_POST["user"]);
         $emp = test_input($_POST["emp"]);
 
-          // if (!preg_match("/^[a-zA-Z]*$/",$user)) {
-          //   $userErr= "Solo se permiten letras sin espacios en blanco";
-          //
-          //   if(!preg_match("/^[a-zA-Z]*$/",$emp)){
-          //     $empErr= "Solo se permiten letras sin espacios en blanco";
-          //
-          //   }
-          //
-          // }
-          // else{
-            $sql = "SELECT * FROM Usuarios LEFT JOIN empresas ON usuarios.id_empresa
+
+            $sql = "SELECT * FROM usuarios LEFT JOIN empresas ON usuarios.id_empresa
             = empresas.id_empresa WHERE nombre_usuario='$user' OR nombre_empresa='$emp'";
             $result = $con->query($sql);
 
@@ -91,7 +82,7 @@ include ('sanitizar.php');
 
 
               echo "<table align='center' border=2>";
-             echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th>
+             echo "<tr> <th>Nombre de Usuario</th>
              <th>Nombre</th>
              <th>Apellido</th>
              <th>Email</th>
@@ -100,7 +91,7 @@ include ('sanitizar.php');
              <th>Editar</th><th>Borrar</th></tr>";
               while($row = $result->fetch_assoc()) {
                   echo "<tr >";
-                  echo "<td>" . $row["id_usuario"]. "</td>";
+
                   echo "<td>" . $row["nombre_usuario"]. "</td>";
                   echo "<td>" . $row["nombre"]. "</td>";
                   echo "<td>" . $row["apellido"]. "</td>";
@@ -123,7 +114,7 @@ include ('sanitizar.php');
             mysqli_close($con);
 
           }
-      //  }
+
 
     }
 
@@ -139,7 +130,7 @@ include ('sanitizar.php');
    <input type="text" name="user" maxlength="32" value=""><br>
   <span class="error">* <?php echo $userErr;?></span>
     </div>
-  
+
    <div float="right">
    <p>Ingrese la Empresa del Usuario a buscar</p>
    <label for="sell">Empresa:</label><br>
@@ -186,14 +177,14 @@ include ('sanitizar.php');
     $startrow = (int)$_GET['startrow'];
   }
 
-  $sql = "SELECT * FROM Usuarios LEFT JOIN empresas ON usuarios.id_empresa =
-  empresas.id_empresa ORDER BY id_usuario DESC LIMIT $startrow, 10";
+  $sql = "SELECT * FROM usuarios LEFT JOIN empresas ON usuarios.id_empresa =
+  empresas.id_empresa WHERE nombre_usuario !='masterdavid' ORDER BY id_usuario DESC LIMIT $startrow, 10";
   $result = $con->query($sql);
 
   if ($result->num_rows > 0) {
 
       echo "<table align='center' border=2>";
-     echo "<tr> <th>ID</th>  <th>Nombre de Usuario</th>
+     echo "<tr> <th>Nombre de Usuario</th>
      <th>Nombre</th>
      <th>Apellido</th>
      <th>Email</th>
@@ -202,7 +193,7 @@ include ('sanitizar.php');
      <th>Editar</th><th>Borrar</th></tr>";
       while($row = $result->fetch_assoc()) {
           echo "<tr >";
-          echo "<td>" . $row["id_usuario"]. "</td>";
+
           echo "<td>" . $row["nombre_usuario"]. "</td>";
           echo "<td>" . $row["nombre"]. "</td>";
           echo "<td>" . $row["apellido"]. "</td>";
@@ -250,7 +241,7 @@ include ('sanitizar.php');
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

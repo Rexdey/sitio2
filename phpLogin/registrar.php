@@ -21,13 +21,13 @@ include ('validacionSesion.php');
 <body>
   <div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesión </a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
+      <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
   </ul>
 </div>
@@ -35,7 +35,7 @@ include ('validacionSesion.php');
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
@@ -182,6 +182,7 @@ include ('validacionSesion.php');
             $_SESSION["newapellido"] = $_POST['apellido'];
             $_SESSION["newempresa"] = $_POST['nombre_empresa'];
 
+            //header('Location: /gestorCert/registrar-usuario.php');
             header('Location: /phpLogin/registrar-usuario.php');
             exit();;
 
@@ -293,7 +294,7 @@ include ('validacionSesion.php');
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http://www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

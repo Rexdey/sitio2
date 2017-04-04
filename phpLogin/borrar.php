@@ -3,7 +3,7 @@ require_once('validacionSesion.php');
 
 
 
-$tbl_name = "Usuarios";
+$tbl_name = "usuarios";
 
 
 
@@ -24,7 +24,8 @@ $sql = "DELETE FROM usuarios WHERE id_usuario=$id";
 
 $result = $con->query($sql);
 
-header('Location: /phpLogin/admin-users.php');
+header('Location: /phpLogin/adminCert.php');
+//header('Location: /gestorCert/admin-users.php');
 exit();
 }
 
@@ -34,7 +35,8 @@ else
 
 {
 
-  header('Location: /phpLogin/admin-users.php');
+header('Location: /phpLogin/adminCert.php');
+  //header('Location: /gestorCert/admin-users.php');
   exit();
 
 }

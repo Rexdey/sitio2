@@ -1,27 +1,27 @@
 <?php
 session_start();
 ?>
-
  <!DOCTYPE html>
 
  <html lang="en">
 
- <head>
+ <head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
   <title>Login</title>
 
-  <meta charset = "utf-8">
+
   <link rel="stylesheet" href="assets/css/styles.css">
  </head>
 
  <body>
    <div class="header">
      <div class="container">
-       <h1 class="header-heading">Gestor de Archivos</h1>
+       <h1 class="header-heading">Certificados Online</h1>
      </div>
    </div>
    <div class="nav-bar">
      <div class="container">
        <ul class="nav">
+       	<li><a href='/index.html'>ImportHN</a></li>
          <li><a href="#"></a></li>
          <li><a href="#"></a></li>
          <li><a href="#"></a></li>
@@ -35,7 +35,7 @@ session_start();
  <h1>Login de Usuarios</h1>
    <hr />
    <?php
-   $tbl_name = "Usuarios";
+   $tbl_name = "usuarios";
 
    include('dbConnect.php');
 
@@ -46,10 +46,8 @@ session_start();
 
    $result = $con->query($sql);
 
+     $row = $result->fetch_array(MYSQLI_ASSOC);
 
-   if ($result->num_rows > 0) {
-    }
-    $row = $result->fetch_array(MYSQLI_ASSOC);
     if (password_verify($password, $row['password'])) {
 
        $_SESSION['loggedin'] = true;
@@ -57,23 +55,26 @@ session_start();
        //$_SESSION['start'] = time();
        //$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
        $_SESSION['LAST_ACTIVITY'] = time();
+       $_SESSION['mail'] = $row['email'];
 
-       // echo "Bienvenido! " . $_SESSION['username'];
-       // echo "<br><br><a href=panel-control.php>Panel de Control</a>";
+
    	if($row['user_type']=="1"){
    		$_SESSION["user_type"] ="admin";
-   		header('Location: /phpLogin/adminCert.php');
+
+      header('Location: /phpLogin/adminCert.php');
+   		//header('Location: /gestorCert/adminCert.php');
    	}else{
    		$_SESSION["user_type"] ='user';
-   		header('Location: /phpLogin/buscarCert.php');
+      header('Location: /phpLogin/buscarCert.php');
+   		//header('Location: /gestorCert/buscarCert.php');
    	}
    ?>
 
    <?php
     } else {
-      echo "Nombre de Usuario o Contraseña incorrectos.";
+      echo "Nombre de Usuario o Contrase単a incorrectos.";
 
-      echo "<br><a href='index.html'> Volver a Intentarlo</a>";
+      echo "<br><a href='index.html'> Volver a Intentar</a>";
     }
     mysqli_close($con);
     ?>
@@ -84,7 +85,7 @@ session_start();
  </div>
  <div class="footer">
    <div class="container">
-     &copy; Copyright 2017
+     &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
    </div>
   </body>
  </html>

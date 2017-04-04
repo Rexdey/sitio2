@@ -16,10 +16,10 @@ $idcert = $_SESSION["newidcert"];
 
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
  <title>Editar Certificados</title>
 
- <meta charset = "utf-8">
+
  <link rel="stylesheet" href="assets/css/styles.css">
  <style>
  .error {color: #FF0000;}
@@ -29,13 +29,13 @@ $idcert = $_SESSION["newidcert"];
 <body>
   <div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesión </a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
+      <li>  <a href=logout.php>Cerrar Sesion </a></li>
 
   </ul>
 </div>
@@ -43,7 +43,7 @@ $idcert = $_SESSION["newidcert"];
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
@@ -91,7 +91,7 @@ $idcert = $_SESSION["newidcert"];
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

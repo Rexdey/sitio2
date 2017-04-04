@@ -8,7 +8,7 @@ require_once('dbConnect.php');
 	if (isset($_POST['upload'])) {
 
 if (empty($_POST["text"])) {
-  $msg = "Se necesita un código";
+  $msg = "Se necesita un c車digo";
 
 } else {
   $text = test_input($_POST["text"]);
@@ -17,16 +17,12 @@ if (empty($_POST["text"])) {
     $msg = "Solo se permiten numeros sin espacios en blanco";
 
   }else{
-    $sql = "SELECT  *  FROM certificados
-    WHERE sello = '$text'";
-
-      $sql = $con->query($sql);
-
-
-    if($sql->num_rows == 0){
-
 
     $text = $_POST['text'];
+    $text2 = $_POST['text2'];
+    $val1 = (int)$text;
+    $val2 = (int)$text2;
+
     $nombrearchivo = $text.".jpg";
     if (($_FILES["image"]["type"] == "image/jpeg")
      || ($_FILES["image"]["type"] == "image/jpg"))
@@ -37,6 +33,13 @@ if (empty($_POST["text"])) {
 
 		  $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$text')";
 		  if ($con->query($sql) === TRUE) {
+
+		  	$val1=$val1+1;
+		  	while($val1<=$val2){
+		  	$sql ="INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$val1')";
+		  	$con->query($sql);
+		  	$val1=$val1+1;
+		  	}
 
 		    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
 			   $msg = "JPG cargado exitosamente";
@@ -51,8 +54,18 @@ if (empty($_POST["text"])) {
   } elseif ($_FILES["image"]["type"] == "application/pdf") {
 
     $pdfAbsolutePath = __DIR__."/images/test.pdf";
+
     $sql = "INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$text')";
     if ($con->query($sql) === TRUE) {
+
+    			$val1=$val1+1;
+		  	while($val1<=$val2){
+		  	$sql ="INSERT INTO certificados (ruta, sello) VALUES ('$nombrearchivo', '$val1')";
+		  	$con->query($sql);
+		  	$val1=$val1+1;
+		  	}
+
+
       if (move_uploaded_file($_FILES['image']["tmp_name"], $pdfAbsolutePath)) {
 
                   $url = $pdfAbsolutePath;
@@ -76,9 +89,7 @@ if (empty($_POST["text"])) {
     $msg= "Debe seleccionar un archivo en formato pdf o jpg.";
   }
   ////
-}else{
-  $msg= "El codigo de certificado ya existe";
-}
+
   }
   }
 }
@@ -90,23 +101,23 @@ if (empty($_POST["text"])) {
 
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
  <title>Cargar Certificado</title>
 
- <meta charset = "utf-8">
+
  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 	<div class="header">
     <div class="container">
-      <h1 class="header-heading">Gestor de Archivos</h1>
+      <h1 class="header-heading">Certificados Online</h1>
     </div>
     <div align="right" >
       <ul class="nav">
       <li><?php echo "Bienvenido " . $_SESSION['username'];  ?></li>
-      <li><a href='cambio.php'>Cambiar contraseña</a></li>
-      <li>  <a href=logout.php>Cerrar Sesión</a></li>
+      <li><a href='cambio.php'>Cambiar password</a></li>
+      <li>  <a href=logout.php>Cerrar Sesion</a></li>
 
   </ul>
 </div>
@@ -114,11 +125,11 @@ if (empty($_POST["text"])) {
   <div class="nav-bar">
     <div class="container">
       <ul class="nav">
-
+	<li><a href='/index.html'>ImportHN</a></li>
         <li><a href='admin-users.php'>Administrar usuarios</a></li>
         <li><a href='registrar.php'>Crear usuarios</a></li>
         <li><a href='empresa.php'>Crear Empresas</a></li>
-				<li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
+	<li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
 
@@ -131,7 +142,7 @@ if (empty($_POST["text"])) {
       <div class="main">
 <h1>Cargar Certificado</h1>
   <hr />
-	<div>Eliga un archivo pdf o jpg y digíte un codigo numerico.</div>
+	<div>Eliga un archivo pdf o jpg e ingrese un codigo numerico.</div>
 <br><br>
 
 				<form method="post" action="cargarimagen.php" enctype="multipart/form-data">
@@ -140,8 +151,13 @@ if (empty($_POST["text"])) {
 						<input type="file" name="image" />
 					</div><br><br>
 					<div>
-						<label for="sell">Sello:</label><br>
+						<label for="sell">Desde Sello:</label><br>
 						<input type="text" name="text" maxlength="32" >
+					</div><br><br>
+					<div>
+						<label for="sell2">Hasta Sello:</label><br>
+						<input type="text" name="text2" maxlength="32" >
+
 					</div><br><br>
 					<div>
 						<input type="submit" name="upload" value="Subir archivo">
@@ -156,7 +172,7 @@ if (empty($_POST["text"])) {
 </div>
 <div class="footer">
   <div class="container">
-    &copy; Copyright 2017
+    &copy; Copyright 2017 <a href="http:\\www.inventor.cl">Inventor</a>
   </div>
  </body>
 </html>

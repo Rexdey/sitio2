@@ -52,12 +52,8 @@ $id= $_POST['id_certificado'];
      <div class="container">
        <ul class="nav">
 	<li><a href='/index.html'>ImportHN</a></li>
-         <li><a href='admin-users.php'>Administrar usuarios</a></li>
-         <li><a href='registrar.php'>Crear usuarios</a></li>
-         <li><a href='empresa.php'>Crear Empresas</a></li>
-         <li><a href='adminEmpresas.php'>Administrar Empresas</a></li>
-         <li><a href='cargarimagen.php'> Cargar Certificado</a></li>
-         <li> <a href='adminCert.php'> Administrar Certificados</a></li>
+         <li><a href='buscarCert.php'>Buscar Certificados</a></li>
+
 
        </ul>
      </div>
@@ -76,21 +72,21 @@ $id= $_POST['id_certificado'];
      $selloErr="";
      $sello="";
      $down="";
-     $descErr="Necesita buscar un certificado para descargar";
 
+     $descErr="Necesita buscar un certificado para descargar";
 
 
              $sql = "SELECT * FROM certificados WHERE id_certificado=$id";
              $result = $con->query($sql);
 
                while($row = $result->fetch_assoc()) {
-               $ima="<div class='parent' style='height:800px;width:600px'>" . "<img src='images/". $row['ruta'] . "' style='width:100%; height:100%'>"."</div>";
+               $ima="<div class='parent' style='height:800px;width:600px'>" . "<img src='images/". $row['ruta']."' style='width:100%; height:100%'>"."</div>";
                $sello=  $row["sello"];
                $ruta=  $row["ruta"];
                $id_certificado= $row["id_certificado"];
-              // echo "<div id='img_div'>";
-               //echo "<img src='images/". $row['ruta']."'>";
-               //echo "</div>";
+               //echo "<div id='img_div'>";
+              // echo "<img src='images/". $row['ruta']."'>";
+              // echo "</div>";
               echo $ima;
                $_SESSION['sello'] = $sello;
                $_SESSION["ruta"] = $ruta;
@@ -109,11 +105,11 @@ $id= $_POST['id_certificado'];
 
 
 
-     <label for="sell"><?php echo "El número de sello es: ".$sello ."";?></label><br>
+     <label for="sell"><?php echo "El número de sello es:".$sello ."";?></label><br>
 
 
     <hr/><br/>
-<h1>Añadir datos</h1>
+<h1>Añadir Datos</h1>
     <form method="post" action="<?php echo $down ?>">
 
 
